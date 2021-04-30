@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "728747281803",
+    "project_id": "coffeenotes-442f4",
+    "storage_bucket": "coffeenotes-442f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728747281803:android:400bbb8607529cf671738e",
+        "android_client_info": {
+          "package_name": "com.flutterflow.sampleappcoffeenotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728747281803-jp63vhe6t89k7vkm53agptm88mguevam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuoL9HwiI4afGegrXAcKmF2zgtmjgEafs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728747281803-jp63vhe6t89k7vkm53agptm88mguevam.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "728747281803-rfjjrvchhb8uqdmq3a2u69frdd2pqvda.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.sampleappcoffeenotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
