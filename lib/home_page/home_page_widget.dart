@@ -302,7 +302,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           ),
                                                           Text(
                                                             columnCoffeeNotesRecord
-                                                                .coffeeWeight
+                                                                .waterWeight
                                                                 .toString(),
                                                             style:
                                                                 FlutterFlowTheme

@@ -34,7 +34,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                       child: Image.asset(
                         'assets/images/bg@2x.png',
                         width: MediaQuery.of(context).size.width,
-                        height: 812,
+                        height: MediaQuery.of(context).size.height * 1,
                         fit: BoxFit.cover,
                       ),
                     ),

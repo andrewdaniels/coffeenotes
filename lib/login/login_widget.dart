@@ -289,30 +289,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                     )
                   ],
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 36, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [],
-                ),
               )
             ],
           ),

@@ -558,6 +558,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                   final grinderType = textController6.text;
                   final coffeeRating = 0;
                   final coffeeNotes = textController7.text;
+                  final timeStamp = getCurrentTimestamp;
 
                   final coffeeNotesRecordData = createCoffeeNotesRecordData(
                     coffeeName: coffeeName,
@@ -568,6 +569,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                     grinderType: grinderType,
                     coffeeRating: coffeeRating,
                     coffeeNotes: coffeeNotes,
+                    timeStamp: timeStamp,
                   );
 
                   await CoffeeNotesRecord.collection

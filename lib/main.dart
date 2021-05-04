@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:sample_app_coffee_notes/splash/splash_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'auth/firebase_user_provider.dart';
+import 'package:sample_app_coffee_notes/login/login_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'home_page/home_page_widget.dart';
 import 'my_profile/my_profile_widget.dart';
@@ -11,14 +12,37 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Stream<SampleAppCoffeeNotesFirebaseUser> userStream;
+  SampleAppCoffeeNotesFirebaseUser initialUser;
+
+  @override
+  void initState() {
+    super.initState();
+    userStream = sampleAppCoffeeNotesFirebaseUserStream()
+      ..listen((user) => initialUser ?? setState(() => initialUser = user));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sample App - Coffee Notes',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: NavBarPage(),
+      home: initialUser == null
+          ? const Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Color(0xff4b39ef)),
+              ),
+            )
+          : currentUser.loggedIn
+              ? NavBarPage()
+              : LoginWidget(),
     );
   }
 }

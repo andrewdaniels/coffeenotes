@@ -197,6 +197,77 @@ class _CoffeeNotesDetailsWidgetState extends State<CoffeeNotesDetailsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        'Brew Time',
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                        child: Text(
+                          '4:30',
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.subtitle2.override(
+                            fontFamily: 'DM Sans',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Rating',
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                            child: Text(
+                              '6',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'DM Sans',
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                            child: Icon(
+                              Icons.star_rate_rounded,
+                              color: FlutterFlowTheme.primaryColor,
+                              size: 32,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 16, 20, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
                         'Grind Size',
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'DM Sans',
@@ -207,7 +278,7 @@ class _CoffeeNotesDetailsWidgetState extends State<CoffeeNotesDetailsWidget> {
                         child: Text(
                           '6.5',
                           textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.title2.override(
+                          style: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'DM Sans',
                           ),
                         ),
@@ -231,7 +302,7 @@ class _CoffeeNotesDetailsWidgetState extends State<CoffeeNotesDetailsWidget> {
                         child: Text(
                           'Ode Grinder',
                           textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.title2.override(
+                          style: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'DM Sans',
                           ),
                         ),
