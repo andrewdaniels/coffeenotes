@@ -1,3 +1,5 @@
+import '../auth/auth_util.dart';
+import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
@@ -13,13 +15,13 @@ class ForgotPasswordWidget extends StatefulWidget {
 }
 
 class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
-  TextEditingController textController;
+  TextEditingController emailTextController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    emailTextController = TextEditingController();
   }
 
   @override
@@ -58,23 +60,26 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
       ),
       backgroundColor: FlutterFlowTheme.tertiaryColor,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Text(
                     'Forgot Password',
                     style: FlutterFlowTheme.title1.override(
                       fontFamily: 'DM Sans',
                     ),
-                  )
-                ],
-              ),
-              Row(
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
@@ -90,92 +95,46 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   )
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.tertiaryColor,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 330,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFFEEEEEE),
-                                width: 1,
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                    child: InputNormalWidget(
+                      inputValue: 'Email Address',
+                      inputHint: 'Email address here...',
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        if (emailTextController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Email required!',
                               ),
                             ),
-                            child: Align(
-                              alignment: Alignment(0, 0.15),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                child: TextFormField(
-                                  controller: textController,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Email Address',
-                                    labelStyle:
-                                        FlutterFlowTheme.subtitle2.override(
-                                      fontFamily: 'DM Sans',
-                                    ),
-                                    hintText: 'Enter your email here...',
-                                    hintStyle:
-                                        FlutterFlowTheme.subtitle2.override(
-                                      fontFamily: 'DM Sans',
-                                    ),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'DM Sans',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                          );
+                          return;
+                        }
+                        await resetPassword(
+                          email: emailTextController.text,
+                          context: context,
+                        );
                       },
                       text: 'Submit',
                       options: FFButtonOptions(
@@ -194,12 +153,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

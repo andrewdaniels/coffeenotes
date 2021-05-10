@@ -15,10 +15,25 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   String get userName;
 
   @nullable
-  String get userEmail;
+  String get userPassword;
 
   @nullable
-  String get userPassword;
+  String get email;
+
+  @nullable
+  @BuiltValueField(wireName: 'display_name')
+  String get displayName;
+
+  @nullable
+  String get uid;
+
+  @nullable
+  @BuiltValueField(wireName: 'created_time')
+  Timestamp get createdTime;
+
+  @nullable
+  @BuiltValueField(wireName: 'photo_url')
+  String get photoUrl;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -26,8 +41,11 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   static void _initializeBuilder(UsersRecordBuilder builder) => builder
     ..userName = ''
-    ..userEmail = ''
-    ..userPassword = '';
+    ..userPassword = ''
+    ..email = ''
+    ..displayName = ''
+    ..uid = ''
+    ..photoUrl = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -43,21 +61,33 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
 Map<String, dynamic> createUsersRecordData({
   String userName,
-  String userEmail,
   String userPassword,
+  String email,
+  String displayName,
+  String uid,
+  Timestamp createdTime,
+  String photoUrl,
 }) =>
     serializers.serializeWith(
         UsersRecord.serializer,
         UsersRecord((u) => u
           ..userName = userName
-          ..userEmail = userEmail
-          ..userPassword = userPassword));
+          ..userPassword = userPassword
+          ..email = email
+          ..displayName = displayName
+          ..uid = uid
+          ..createdTime = createdTime
+          ..photoUrl = photoUrl));
 
 UsersRecord get dummyUsersRecord {
   final builder = UsersRecordBuilder()
     ..userName = dummyString
-    ..userEmail = dummyString
-    ..userPassword = dummyString;
+    ..userPassword = dummyString
+    ..email = dummyString
+    ..displayName = dummyString
+    ..uid = dummyString
+    ..createdTime = dummyTimestamp
+    ..photoUrl = dummyImagePath;
   return builder.build();
 }
 

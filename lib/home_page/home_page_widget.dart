@@ -21,22 +21,47 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF7F7F8),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CreateNoteNewWidget(),
+      floatingActionButton: StreamBuilder<List<CoffeeNotesRecord>>(
+        stream: queryCoffeeNotesRecord(
+          singleRecord: true,
+        ),
+        builder: (context, snapshot) {
+          // Customize what your widget looks like when it's loading.
+          if (!snapshot.hasData) {
+            return Center(child: CircularProgressIndicator());
+          }
+          List<CoffeeNotesRecord> floatingActionButtonCoffeeNotesRecordList =
+              snapshot.data;
+          // Customize what your widget looks like with no query results.
+          if (snapshot.data.isEmpty) {
+            // return Container();
+            // For now, we'll just include some dummy data.
+            floatingActionButtonCoffeeNotesRecordList =
+                createDummyCoffeeNotesRecord(count: 1);
+          }
+          final floatingActionButtonCoffeeNotesRecord =
+              floatingActionButtonCoffeeNotesRecordList.first;
+          return FloatingActionButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CreateNoteNewWidget(
+                    lastGrinderUsed:
+                        floatingActionButtonCoffeeNotesRecord.grinderType,
+                  ),
+                ),
+              );
+            },
+            backgroundColor: FlutterFlowTheme.primaryColor,
+            elevation: 8,
+            child: Icon(
+              Icons.add,
+              color: FlutterFlowTheme.tertiaryColor,
+              size: 24,
             ),
           );
         },
-        backgroundColor: FlutterFlowTheme.primaryColor,
-        elevation: 8,
-        child: Icon(
-          Icons.add,
-          color: FlutterFlowTheme.tertiaryColor,
-          size: 24,
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -84,7 +109,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateNoteNewWidget(),
+                        builder: (context) => CreateNoteNewWidget(
+                          lastGrinderUsed: 'Ode Grinder',
+                        ),
                       ),
                     );
                   },

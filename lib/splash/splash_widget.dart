@@ -1,6 +1,7 @@
+import '../components/primary_button_widget.dart';
+import '../components/secondary_button_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -129,31 +130,8 @@ class _SplashWidgetState extends State<SplashWidget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: 'Create Account',
-                                            options: FFButtonOptions(
-                                              width: 230,
-                                              height: 50,
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
-                                              textStyle: FlutterFlowTheme
-                                                  .subtitle2
-                                                  .override(
-                                                fontFamily: 'DM Sans',
-                                                color: FlutterFlowTheme
-                                                    .tertiaryColor,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              elevation: 2,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 0,
-                                              ),
-                                              borderRadius: 8,
-                                            ),
+                                          PrimaryButtonWidget(
+                                            buttonText: 'Register',
                                           )
                                         ],
                                       ),
@@ -167,37 +145,8 @@ class _SplashWidgetState extends State<SplashWidget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      LoginWidget(),
-                                                ),
-                                              );
-                                            },
-                                            text: 'Login',
-                                            options: FFButtonOptions(
-                                              width: 230,
-                                              height: 50,
-                                              color: FlutterFlowTheme
-                                                  .tertiaryColor,
-                                              textStyle: FlutterFlowTheme
-                                                  .subtitle2
-                                                  .override(
-                                                fontFamily: 'DM Sans',
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              elevation: 2,
-                                              borderSide: BorderSide(
-                                                color: Color(0xFFF1F4F8),
-                                                width: 2,
-                                              ),
-                                              borderRadius: 8,
-                                            ),
+                                          SecondaryButtonWidget(
+                                            buttonText: 'Login',
                                           )
                                         ],
                                       ),
