@@ -1,5 +1,4 @@
 import '../auth/auth_util.dart';
-import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
@@ -16,14 +15,14 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController emailTextController;
+  TextEditingController inputNormalController;
   TextEditingController passwordTextController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
+    inputNormalController = TextEditingController();
     passwordTextController = TextEditingController();
   }
 
@@ -97,10 +96,50 @@ class _LoginWidgetState extends State<LoginWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                    child: InputNormalWidget(
-                      inputValue: 'Email Address',
-                      inputHint: 'Email address here...',
+                    padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                    child: TextFormField(
+                      controller: inputNormalController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Email Address',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        hintText: 'Enter your email here...',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'DM Sans',
+                        color: FlutterFlowTheme.primaryColor,
+                      ),
                     ),
                   ),
                 )
@@ -198,7 +237,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       onPressed: () async {
                         final user = await signInWithEmail(
                           context,
-                          emailTextController.text,
+                          inputNormalController.text,
                           passwordTextController.text,
                         );
                         if (user == null) {
