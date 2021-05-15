@@ -35,15 +35,21 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.tertiaryColor,
         automaticallyImplyLeading: false,
-        leading: Icon(
-          Icons.arrow_back,
-          color: FlutterFlowTheme.secondaryColor,
-          size: 24,
+        leading: InkWell(
+          onTap: () async {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: FlutterFlowTheme.secondaryColor,
+            size: 24,
+          ),
         ),
         actions: [],
         centerTitle: false,
         elevation: 0,
       ),
+      backgroundColor: FlutterFlowTheme.tertiaryColor,
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,

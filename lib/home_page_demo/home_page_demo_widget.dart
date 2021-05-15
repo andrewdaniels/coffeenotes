@@ -1,4 +1,4 @@
-import '../create_note/create_note_widget.dart';
+import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +23,7 @@ class _HomePageDemoWidgetState extends State<HomePageDemoWidget> {
           await Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CreateNoteWidget(),
+              builder: (context) => CreateNoteNewWidget(),
             ),
           );
         },
@@ -93,7 +93,7 @@ class _HomePageDemoWidgetState extends State<HomePageDemoWidget> {
                                           ),
                                         ),
                                         Text(
-                                          'Ethiopian Natural',
+                                          'Colombian Natural',
                                           style:
                                               FlutterFlowTheme.title2.override(
                                             fontFamily: 'DM Sans',
@@ -168,7 +168,7 @@ class _HomePageDemoWidgetState extends State<HomePageDemoWidget> {
                                           padding:
                                               EdgeInsets.fromLTRB(0, 4, 0, 0),
                                           child: Text(
-                                            '457g',
+                                            '416',
                                             style: FlutterFlowTheme.subtitle2
                                                 .override(
                                               fontFamily: 'DM Sans',
