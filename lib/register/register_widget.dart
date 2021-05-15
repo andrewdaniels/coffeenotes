@@ -148,7 +148,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'DM Sans',
-                        color: FlutterFlowTheme.secondaryColor,
+                        color: Color(0xFF14181B),
                       ),
                     ),
                   ),
@@ -202,7 +202,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'DM Sans',
-                        color: FlutterFlowTheme.secondaryColor,
+                        color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
                   ),
@@ -239,11 +239,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       }
 
                       final userName = emailTextController.text;
-                      final userPassword = passwordTextController.text;
 
                       final usersRecordData = createUsersRecordData(
                         userName: userName,
-                        userPassword: userPassword,
                       );
 
                       await UsersRecord.collection

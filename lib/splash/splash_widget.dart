@@ -1,7 +1,7 @@
-import '../components/primary_button_widget.dart';
-import '../components/secondary_button_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
+import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -130,8 +130,35 @@ class _SplashWidgetState extends State<SplashWidget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          PrimaryButtonWidget(
-                                            buttonText: 'Register',
+                                          FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      RegisterWidget(),
+                                                ),
+                                              );
+                                            },
+                                            text: 'Register',
+                                            options: FFButtonOptions(
+                                              width: 230,
+                                              height: 50,
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
+                                              textStyle: FlutterFlowTheme
+                                                  .subtitle2
+                                                  .override(
+                                                fontFamily: 'DM Sans',
+                                                color: Colors.white,
+                                              ),
+                                              elevation: 3,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius: 8,
+                                            ),
                                           )
                                         ],
                                       ),
@@ -145,8 +172,36 @@ class _SplashWidgetState extends State<SplashWidget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          SecondaryButtonWidget(
-                                            buttonText: 'Login',
+                                          FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      LoginWidget(),
+                                                ),
+                                              );
+                                            },
+                                            text: 'Login',
+                                            options: FFButtonOptions(
+                                              width: 230,
+                                              height: 50,
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              textStyle: FlutterFlowTheme
+                                                  .subtitle2
+                                                  .override(
+                                                fontFamily: 'DM Sans',
+                                                color: FlutterFlowTheme
+                                                    .primaryColor,
+                                              ),
+                                              elevation: 2,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius: 8,
+                                            ),
                                           )
                                         ],
                                       ),
