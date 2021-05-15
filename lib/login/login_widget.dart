@@ -192,7 +192,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'DM Sans',
-                        color: FlutterFlowTheme.secondaryColor,
+                        color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
                   ),
