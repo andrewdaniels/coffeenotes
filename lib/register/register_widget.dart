@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
@@ -16,7 +15,7 @@ class RegisterWidget extends StatefulWidget {
 
 class _RegisterWidgetState extends State<RegisterWidget> {
   TextEditingController confirmPasswordTextController;
-  TextEditingController emailTextController;
+  TextEditingController inputNormalController;
   TextEditingController passwordTextController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -24,7 +23,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   void initState() {
     super.initState();
     confirmPasswordTextController = TextEditingController();
-    emailTextController = TextEditingController();
+    inputNormalController = TextEditingController();
     passwordTextController = TextEditingController();
   }
 
@@ -92,10 +91,50 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                    child: InputNormalWidget(
-                      inputValue: 'Email Address',
-                      inputHint: 'Email address here...',
+                    padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                    child: TextFormField(
+                      controller: inputNormalController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Email Address',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        hintText: 'Enter your email address...',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'DM Sans',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'DM Sans',
+                        color: FlutterFlowTheme.primaryColor,
+                      ),
                     ),
                   ),
                 )
@@ -231,14 +270,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                       final user = await createAccountWithEmail(
                         context,
-                        emailTextController.text,
+                        inputNormalController.text,
                         passwordTextController.text,
                       );
                       if (user == null) {
                         return;
                       }
 
-                      final userName = emailTextController.text;
+                      final userName = inputNormalController.text;
 
                       final usersRecordData = createUsersRecordData(
                         userName: userName,
