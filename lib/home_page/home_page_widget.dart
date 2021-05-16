@@ -87,35 +87,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     alignment: Alignment(0, 0),
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(70, 40, 0, 0),
-                      child: InkWell(
-                        onTap: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CreateNoteNewWidget(),
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.primaryColor,
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Align(
+                          alignment: Alignment(-0.05, 0),
+                          child: IconButton(
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CreateNoteNewWidget(),
+                                ),
+                              );
+                            },
+                            icon: Icon(
+                              Icons.add,
+                              color: FlutterFlowTheme.tertiaryColor,
+                              size: 20,
                             ),
-                          );
-                        },
-                        child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: FlutterFlowTheme.primaryColor,
-                          elevation: 2,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Align(
-                            alignment: Alignment(-0.05, 0),
-                            child: IconButton(
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                              icon: Icon(
-                                Icons.add,
-                                color: FlutterFlowTheme.tertiaryColor,
-                                size: 20,
-                              ),
-                              iconSize: 20,
-                            ),
+                            iconSize: 20,
                           ),
                         ),
                       ),
