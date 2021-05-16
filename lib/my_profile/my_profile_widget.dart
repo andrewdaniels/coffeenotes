@@ -1,6 +1,8 @@
+import '../auth/auth_util.dart';
 import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../splash/splash_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -149,8 +151,15 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await signOut();
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SplashWidget(),
+                      ),
+                      (r) => false,
+                    );
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(
