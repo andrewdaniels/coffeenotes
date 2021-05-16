@@ -72,6 +72,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(24, 56, 0, 0),
@@ -80,6 +81,44 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       width: 220,
                       height: 31,
                       fit: BoxFit.cover,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment(0, 0),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(70, 40, 0, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CreateNoteNewWidget(),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color: FlutterFlowTheme.primaryColor,
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Align(
+                            alignment: Alignment(-0.05, 0),
+                            child: IconButton(
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                              icon: Icon(
+                                Icons.add,
+                                color: FlutterFlowTheme.tertiaryColor,
+                                size: 20,
+                              ),
+                              iconSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   )
                 ],
