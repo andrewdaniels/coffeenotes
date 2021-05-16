@@ -1,6 +1,5 @@
 import '../backend/backend.dart';
 import '../coffee_details/coffee_details_widget.dart';
-import '../coffee_notes_details/coffee_notes_details_widget.dart';
 import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +22,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       backgroundColor: Color(0xFFF7F7F8),
       floatingActionButton: StreamBuilder<List<CoffeeNotesRecord>>(
         stream: queryCoffeeNotesRecord(
+          queryBuilder: (coffeeNotesRecord) =>
+              coffeeNotesRecord.orderBy('timeStamp', descending: true),
           singleRecord: true,
         ),
         builder: (context, snapshot) {
@@ -75,7 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(24, 56, 0, 0),
                     child: Image.asset(
-                      'assets/images/logo_flat.svg',
+                      'assets/images/logo_flat@2x.png',
                       width: 220,
                       height: 31,
                       fit: BoxFit.cover,
@@ -100,7 +101,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 if (columnCoffeeNotesRecordList.isEmpty) {
                   return Center(
                     child: Image.asset(
-                      'assets/images/emptyNotes.svg',
+                      'assets/images/emptyNotes@2x.png',
                     ),
                   );
                 }
@@ -109,9 +110,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateNoteNewWidget(
-                          lastGrinderUsed: 'Ode Grinder',
-                        ),
+                        builder: (context) => CreateNoteNewWidget(),
                       ),
                     );
                   },
@@ -147,244 +146,152 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    child:
-                                        StreamBuilder<List<CoffeeNotesRecord>>(
-                                      stream: queryCoffeeNotesRecord(
-                                        singleRecord: true,
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                              child:
-                                                  CircularProgressIndicator());
-                                        }
-                                        List<CoffeeNotesRecord>
-                                            columnCoffeeNotesRecordList =
-                                            snapshot.data;
-                                        // Customize what your widget looks like with no query results.
-                                        if (snapshot.data.isEmpty) {
-                                          // return Container();
-                                          // For now, we'll just include some dummy data.
-                                          columnCoffeeNotesRecordList =
-                                              createDummyCoffeeNotesRecord(
-                                                  count: 1);
-                                        }
-                                        final columnCoffeeNotesRecord =
-                                            columnCoffeeNotesRecordList.first;
-                                        return InkWell(
-                                          onTap: () async {
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    CoffeeNotesDetailsWidget(),
-                                              ),
-                                            );
-                                          },
-                                          child: Column(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(16, 12, 0, 0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
+                                              Expanded(
+                                                child: Text(
+                                                  columnCoffeeNotesRecord
+                                                      .coffeeName,
+                                                  style: FlutterFlowTheme.title2
+                                                      .override(
+                                                    fontFamily: 'DM Sans',
+                                                  ),
+                                                ),
+                                              ),
                                               Padding(
                                                 padding: EdgeInsets.fromLTRB(
-                                                    16, 12, 0, 0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      child: StreamBuilder<
-                                                          List<
-                                                              CoffeeNotesRecord>>(
-                                                        stream:
-                                                            queryCoffeeNotesRecord(
-                                                          singleRecord: true,
-                                                        ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                                child:
-                                                                    CircularProgressIndicator());
-                                                          }
-                                                          List<CoffeeNotesRecord>
-                                                              textCoffeeNotesRecordList =
-                                                              snapshot.data;
-                                                          // Customize what your widget looks like with no query results.
-                                                          if (snapshot
-                                                              .data.isEmpty) {
-                                                            // return Container();
-                                                            // For now, we'll just include some dummy data.
-                                                            textCoffeeNotesRecordList =
-                                                                createDummyCoffeeNotesRecord(
-                                                                    count: 1);
-                                                          }
-                                                          final textCoffeeNotesRecord =
-                                                              textCoffeeNotesRecordList
-                                                                  .first;
-                                                          return Text(
-                                                            textCoffeeNotesRecord
-                                                                .coffeeName,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .title2
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'DM Sans',
-                                                            ),
-                                                          );
-                                                        },
+                                                    0, 0, 12, 0),
+                                                child: Icon(
+                                                  Icons.chevron_right,
+                                                  color: FlutterFlowTheme
+                                                      .secondaryColor,
+                                                  size: 24,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(16, 8, 0, 12),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                            0, 0, 0, 4),
+                                                    child: Text(
+                                                      'Coffee (g)',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                          .bodyText2
+                                                          .override(
+                                                        fontFamily: 'DM Sans',
                                                       ),
                                                     ),
+                                                  ),
+                                                  Text(
+                                                    columnCoffeeNotesRecord
+                                                        .coffeeWeight
+                                                        .toString(),
+                                                    style: FlutterFlowTheme
+                                                        .title3
+                                                        .override(
+                                                      fontFamily: 'DM Sans',
+                                                      fontSize: 16,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    24, 0, 0, 0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
                                                     Padding(
                                                       padding:
                                                           EdgeInsets.fromLTRB(
-                                                              0, 0, 12, 0),
-                                                      child: Icon(
-                                                        Icons.chevron_right,
-                                                        color: FlutterFlowTheme
-                                                            .secondaryColor,
-                                                        size: 24,
+                                                              0, 0, 0, 4),
+                                                      child: Text(
+                                                        'Water (g)',
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style: FlutterFlowTheme
+                                                            .bodyText2
+                                                            .override(
+                                                          fontFamily: 'DM Sans',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      columnCoffeeNotesRecord
+                                                          .waterWeight
+                                                          .toString(),
+                                                      style: FlutterFlowTheme
+                                                          .title3
+                                                          .override(
+                                                        fontFamily: 'DM Sans',
+                                                        fontSize: 16,
                                                       ),
                                                     )
                                                   ],
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    16, 8, 0, 12),
-                                                child: Row(
+                                              Expanded(
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Padding(
-                                                          padding: EdgeInsets
-                                                              .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            'Coffee (g)',
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText2
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'DM Sans',
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          columnCoffeeNotesRecord
-                                                              .coffeeWeight
-                                                              .toString(),
-                                                          style:
-                                                              FlutterFlowTheme
-                                                                  .title3
-                                                                  .override(
-                                                            fontFamily:
-                                                                'DM Sans',
-                                                            fontSize: 16,
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsets.fromLTRB(
-                                                              24, 0, 0, 0),
-                                                      child: Column(
+                                                              0, 0, 12, 0),
+                                                      child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
-                                                                .start,
+                                                                .center,
                                                         children: [
-                                                          Padding(
-                                                            padding: EdgeInsets
-                                                                .fromLTRB(
-                                                                    0, 0, 0, 4),
-                                                            child: Text(
-                                                              'Water (g)',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style:
-                                                                  FlutterFlowTheme
-                                                                      .bodyText2
-                                                                      .override(
-                                                                fontFamily:
-                                                                    'DM Sans',
-                                                              ),
-                                                            ),
-                                                          ),
                                                           Text(
                                                             columnCoffeeNotesRecord
-                                                                .waterWeight
+                                                                .coffeeRating
                                                                 .toString(),
                                                             style:
                                                                 FlutterFlowTheme
-                                                                    .title3
+                                                                    .subtitle1
                                                                     .override(
                                                               fontFamily:
                                                                   'DM Sans',
-                                                              fontSize: 16,
+                                                              color: FlutterFlowTheme
+                                                                  .primaryColor,
                                                             ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding: EdgeInsets
-                                                                .fromLTRB(0, 0,
-                                                                    12, 0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Text(
-                                                                  columnCoffeeNotesRecord
-                                                                      .coffeeRating
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme
-                                                                      .subtitle1
-                                                                      .override(
-                                                                    fontFamily:
-                                                                        'DM Sans',
-                                                                    color: FlutterFlowTheme
-                                                                        .primaryColor,
-                                                                  ),
-                                                                ),
-                                                                Icon(
-                                                                  Icons
-                                                                      .star_rounded,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 24,
-                                                                )
-                                                              ],
-                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            Icons.star_rounded,
+                                                            color: Colors.black,
+                                                            size: 24,
                                                           )
                                                         ],
                                                       ),
@@ -394,8 +301,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               )
                                             ],
                                           ),
-                                        );
-                                      },
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ),
