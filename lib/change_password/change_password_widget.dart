@@ -32,13 +32,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         automaticallyImplyLeading: true,
         leading: InkWell(
           onTap: () async {
-            await Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NavBarPage(initialPage: 'MyProfile'),
-              ),
-              (r) => false,
-            );
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.arrow_back,
