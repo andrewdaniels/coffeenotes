@@ -1,3 +1,4 @@
+import '../components/primary_button_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
@@ -121,8 +122,19 @@ class _SplashWidgetState extends State<SplashWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          PrimaryButtonWidget(
+                                            buttonText: 'test action',
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
                                       padding:
-                                          EdgeInsets.fromLTRB(0, 220, 0, 0),
+                                          EdgeInsets.fromLTRB(0, 170, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
