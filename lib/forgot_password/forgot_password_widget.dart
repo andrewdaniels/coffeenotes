@@ -120,6 +120,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                           email: emailTextController.text,
                           context: context,
                         );
+                        Navigator.pop(context);
                       },
                       text: 'Submit',
                       options: FFButtonOptions(

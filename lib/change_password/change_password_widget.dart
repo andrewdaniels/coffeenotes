@@ -2,8 +2,7 @@ import '../auth/auth_util.dart';
 import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login/login_widget.dart';
-import '../splash/splash_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,14 +35,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             await Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => SplashWidget(),
-              ),
-              (r) => false,
-            );
-            await Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => LoginWidget(),
+                builder: (context) => NavBarPage(initialPage: 'MyProfile'),
               ),
               (r) => false,
             );
@@ -134,6 +126,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                         email: emailTextController.text,
                         context: context,
                       );
+                      Navigator.pop(context);
                     },
                     text: 'Send Link',
                     options: FFButtonOptions(
