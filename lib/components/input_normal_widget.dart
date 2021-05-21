@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InputNormalWidget extends StatefulWidget {
-  InputNormalWidget({Key key, this.inputValue, this.inputHint})
-      : super(key: key);
+  InputNormalWidget({
+    Key key,
+    this.inputValue,
+    this.inputHint,
+  }) : super(key: key);
 
   final String inputValue;
   final String inputHint;
@@ -14,12 +17,12 @@ class InputNormalWidget extends StatefulWidget {
 }
 
 class _InputNormalWidgetState extends State<InputNormalWidget> {
-  TextEditingController inputNormalController;
+  TextEditingController textController;
 
   @override
   void initState() {
     super.initState();
-    inputNormalController = TextEditingController();
+    textController = TextEditingController();
   }
 
   @override
@@ -27,7 +30,7 @@ class _InputNormalWidgetState extends State<InputNormalWidget> {
     return Padding(
       padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: TextFormField(
-        controller: inputNormalController,
+        controller: textController,
         obscureText: false,
         decoration: InputDecoration(
           labelText: widget.inputValue,

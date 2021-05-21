@@ -3,7 +3,10 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButtonWidget extends StatefulWidget {
-  PrimaryButtonWidget({Key key, this.buttonText}) : super(key: key);
+  PrimaryButtonWidget({
+    Key key,
+    this.buttonText,
+  }) : super(key: key);
 
   final String buttonText;
 
@@ -16,7 +19,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
   Widget build(BuildContext context) {
     return FFButtonWidget(
       onPressed: () {
-        print('primaryButton pressed ...');
+        print('Button pressed ...');
       },
       text: widget.buttonText,
       options: FFButtonOptions(

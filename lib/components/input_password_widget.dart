@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InputPasswordWidget extends StatefulWidget {
-  InputPasswordWidget({Key key, this.inputValue, this.inputHint})
-      : super(key: key);
+  InputPasswordWidget({
+    Key key,
+    this.inputValue,
+    this.inputHint,
+  }) : super(key: key);
 
   final String inputValue;
   final String inputHint;
@@ -14,12 +17,12 @@ class InputPasswordWidget extends StatefulWidget {
 }
 
 class _InputPasswordWidgetState extends State<InputPasswordWidget> {
-  TextEditingController inputPasswordController;
+  TextEditingController textController;
 
   @override
   void initState() {
     super.initState();
-    inputPasswordController = TextEditingController();
+    textController = TextEditingController();
   }
 
   @override
@@ -27,7 +30,7 @@ class _InputPasswordWidgetState extends State<InputPasswordWidget> {
     return Padding(
       padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: TextFormField(
-        controller: inputPasswordController,
+        controller: textController,
         obscureText: true,
         decoration: InputDecoration(
           labelText: widget.inputValue,

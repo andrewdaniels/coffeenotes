@@ -11,7 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateNoteNewWidget extends StatefulWidget {
-  CreateNoteNewWidget({Key key, this.lastGrinderUsed}) : super(key: key);
+  CreateNoteNewWidget({
+    Key key,
+    this.lastGrinderUsed,
+  }) : super(key: key);
 
   final String lastGrinderUsed;
 

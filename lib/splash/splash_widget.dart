@@ -1,7 +1,7 @@
-import '../components/primary_button_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
+import '../onboarding1/onboarding1_widget.dart';
 import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,11 +52,22 @@ class _SplashWidgetState extends State<SplashWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  'assets/images/logo_horizontal@2x.png',
-                                  width: 220,
-                                  height: 108,
-                                  fit: BoxFit.cover,
+                                InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            Onboarding1Widget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/logo_horizontal@2x.png',
+                                    width: 220,
+                                    height: 108,
+                                    fit: BoxFit.cover,
+                                  ),
                                 )
                               ],
                             ),
@@ -120,18 +131,9 @@ class _SplashWidgetState extends State<SplashWidget> {
                               children: [
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          PrimaryButtonWidget(
-                                            buttonText: 'test action',
-                                          )
-                                        ],
-                                      ),
-                                    ),
                                     Padding(
                                       padding:
                                           EdgeInsets.fromLTRB(0, 170, 0, 0),

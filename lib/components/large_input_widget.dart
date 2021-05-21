@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LargeInputWidget extends StatefulWidget {
-  LargeInputWidget({Key key, this.inputLabel, this.inputHint})
-      : super(key: key);
+  LargeInputWidget({
+    Key key,
+    this.inputLabel,
+    this.inputHint,
+  }) : super(key: key);
 
   final String inputLabel;
   final String inputHint;
