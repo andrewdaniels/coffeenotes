@@ -1,6 +1,5 @@
 import '../backend/backend.dart';
 import '../coffee_details/coffee_details_widget.dart';
-import '../create_note_alt/create_note_alt_widget.dart';
 import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -98,13 +97,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         child: Align(
                           alignment: Alignment(-0.05, 0),
                           child: IconButton(
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CreateNoteAltWidget(),
-                                ),
-                              );
+                            onPressed: () {
+                              print('IconButton pressed ...');
                             },
                             icon: Icon(
                               Icons.add,
