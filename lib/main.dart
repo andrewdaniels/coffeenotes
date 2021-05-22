@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
 import 'package:sample_app_coffee_notes/splash/splash_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'home_page/home_page_widget.dart';
 import 'my_profile/my_profile_widget.dart';
+import 'home_page/home_page_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,24 +69,13 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': HomePageWidget(),
       'MyProfile': MyProfileWidget(),
+      'HomePage': HomePageWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.library_books_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.library_books,
-              size: 24,
-            ),
-            label: 'My Brews',
-          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outline,
@@ -97,6 +86,17 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'My Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.library_books_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.library_books,
+              size: 24,
+            ),
+            label: 'My Brews',
           )
         ],
         backgroundColor: Colors.white,
