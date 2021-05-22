@@ -35,10 +35,15 @@ class _CoffeeDetailsWidgetState extends State<CoffeeDetailsWidget> {
             backgroundColor: Color(0xFFF1F4F8),
             iconTheme: IconThemeData(color: FlutterFlowTheme.primaryColor),
             automaticallyImplyLeading: false,
-            leading: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.secondaryColor,
-              size: 24,
+            leading: InkWell(
+              onTap: () async {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.secondaryColor,
+                size: 24,
+              ),
             ),
             title: Text(
               'Coffee Notes',
