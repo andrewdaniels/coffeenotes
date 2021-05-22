@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CoffeeDetailsWidget extends StatefulWidget {
-  CoffeeDetailsWidget({Key key, this.coffeeNoteRecord}) : super(key: key);
+  CoffeeDetailsWidget({
+    Key key,
+    this.coffeeNoteRecord,
+  }) : super(key: key);
 
   final DocumentReference coffeeNoteRecord;
 

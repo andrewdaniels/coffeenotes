@@ -9,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateNoteAltWidget extends StatefulWidget {
-  CreateNoteAltWidget({Key key, this.lastGrinderUsed}) : super(key: key);
+  CreateNoteAltWidget({
+    Key key,
+    this.lastGrinderUsed,
+  }) : super(key: key);
 
   final String lastGrinderUsed;
 
@@ -144,7 +147,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                             ),
                             style: FlutterFlowTheme.title3.override(
                               fontFamily: 'DM Sans',
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.tertiaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -206,7 +209,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                                 ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'DM Sans',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -261,7 +264,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                                 ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'DM Sans',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -321,7 +324,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'DM Sans',
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.tertiaryColor,
                             ),
                           ),
                         ),
@@ -383,7 +386,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                                 ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'DM Sans',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -439,7 +442,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                                 ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'DM Sans',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -504,7 +507,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                           ),
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'DM Sans',
-                            color: FlutterFlowTheme.primaryColor,
+                            color: FlutterFlowTheme.tertiaryColor,
                           ),
                         ),
                       )

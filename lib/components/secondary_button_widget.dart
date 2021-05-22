@@ -3,7 +3,10 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
 class SecondaryButtonWidget extends StatefulWidget {
-  SecondaryButtonWidget({Key key, this.buttonText}) : super(key: key);
+  SecondaryButtonWidget({
+    Key key,
+    this.buttonText,
+  }) : super(key: key);
 
   final String buttonText;
 
@@ -16,7 +19,7 @@ class _SecondaryButtonWidgetState extends State<SecondaryButtonWidget> {
   Widget build(BuildContext context) {
     return FFButtonWidget(
       onPressed: () {
-        print('secondaryButton pressed ...');
+        print('Button pressed ...');
       },
       text: widget.buttonText,
       options: FFButtonOptions(
