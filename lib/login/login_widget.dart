@@ -30,7 +30,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.primaryColor,
+        backgroundColor: FlutterFlowTheme.tertiaryColor,
         automaticallyImplyLeading: true,
         leading: InkWell(
           onTap: () async {
@@ -46,7 +46,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         centerTitle: true,
         elevation: 0,
       ),
-      backgroundColor: FlutterFlowTheme.primaryColor,
+      backgroundColor: FlutterFlowTheme.tertiaryColor,
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -60,7 +60,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     'Login',
                     style: FlutterFlowTheme.title1.override(
                       fontFamily: 'Lexend Deca',
-                      color: FlutterFlowTheme.tertiaryColor,
+                      color: FlutterFlowTheme.primaryColor,
                     ),
                   )
                 ],
@@ -107,7 +107,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF424E5A),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -119,7 +119,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF424E5A),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -161,7 +161,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF424E5A),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -173,7 +173,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF424E5A),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -214,10 +214,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                       options: FFButtonOptions(
                         width: 150,
                         height: 50,
-                        color: FlutterFlowTheme.primaryColor,
+                        color: FlutterFlowTheme.tertiaryColor,
                         textStyle: FlutterFlowTheme.subtitle2.override(
                           fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.tertiaryColor,
+                          color: FlutterFlowTheme.primaryColor,
                         ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
@@ -252,7 +252,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       options: FFButtonOptions(
                         width: 130,
                         height: 50,
-                        color: Color(0xFF0064FF),
+                        color: FlutterFlowTheme.primaryColor,
                         textStyle: FlutterFlowTheme.subtitle2.override(
                           fontFamily: 'Lexend Deca',
                           color: Colors.white,

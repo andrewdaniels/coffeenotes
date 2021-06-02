@@ -98,52 +98,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
               )
             ],
           ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.tertiaryColor,
-                  shape: BoxShape.rectangle,
-                  border: Border.all(
-                    color: Color(0xFFEEEEEE),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(24, 0, 16, 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Notifications',
-                            style: FlutterFlowTheme.subtitle1.override(
-                              fontFamily: 'Lexend Deca',
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment(1, 0),
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.secondaryColor,
-                                size: 20,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
             child: Row(

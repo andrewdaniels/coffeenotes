@@ -1,5 +1,4 @@
 import '../auth/auth_util.dart';
-import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -86,10 +85,50 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                    child: InputNormalWidget(
-                      inputValue: 'Email Address',
-                      inputHint: 'Email address here...',
+                    padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                    child: TextFormField(
+                      controller: emailTextController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Email Address',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        hintText: 'Email associated with your account...',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.secondaryColor,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: FlutterFlowTheme.primaryColor,
+                      ),
                     ),
                   ),
                 )

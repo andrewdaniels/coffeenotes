@@ -453,13 +453,13 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                  padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 343,
+                        width: MediaQuery.of(context).size.width * 0.92,
                         height: 120,
                         decoration: BoxDecoration(
                           color: Colors.white,
