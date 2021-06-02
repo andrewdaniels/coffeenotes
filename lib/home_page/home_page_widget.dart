@@ -162,7 +162,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .coffeeName,
                                                   style: FlutterFlowTheme.title2
                                                       .override(
-                                                    fontFamily: 'DM Sans',
+                                                    fontFamily: 'Lexend Deca',
                                                   ),
                                                 ),
                                               ),
@@ -201,7 +201,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       style: FlutterFlowTheme
                                                           .bodyText2
                                                           .override(
-                                                        fontFamily: 'DM Sans',
+                                                        fontFamily:
+                                                            'Lexend Deca',
                                                       ),
                                                     ),
                                                   ),
@@ -212,7 +213,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     style: FlutterFlowTheme
                                                         .title3
                                                         .override(
-                                                      fontFamily: 'DM Sans',
+                                                      fontFamily: 'Lexend Deca',
                                                       fontSize: 16,
                                                     ),
                                                   )
@@ -238,7 +239,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         style: FlutterFlowTheme
                                                             .bodyText2
                                                             .override(
-                                                          fontFamily: 'DM Sans',
+                                                          fontFamily:
+                                                              'Lexend Deca',
                                                         ),
                                                       ),
                                                     ),
@@ -249,7 +251,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       style: FlutterFlowTheme
                                                           .title3
                                                           .override(
-                                                        fontFamily: 'DM Sans',
+                                                        fontFamily:
+                                                            'Lexend Deca',
                                                         fontSize: 16,
                                                       ),
                                                     )
@@ -284,7 +287,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     .subtitle1
                                                                     .override(
                                                               fontFamily:
-                                                                  'DM Sans',
+                                                                  'Lexend Deca',
                                                               color: FlutterFlowTheme
                                                                   .primaryColor,
                                                             ),

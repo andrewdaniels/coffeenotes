@@ -29,7 +29,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
         title: Text(
           'Coffee Notes',
           style: FlutterFlowTheme.subtitle1.override(
-            fontFamily: 'DM Sans',
+            fontFamily: 'Lexend Deca',
             color: FlutterFlowTheme.primaryColor,
           ),
         ),
@@ -76,7 +76,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                             Text(
                               'Coffee Name',
                               style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'DM Sans',
+                                fontFamily: 'Lexend Deca',
                               ),
                             )
                           ],
@@ -92,7 +92,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                               child: Text(
                                 'Hello World',
                                 style: FlutterFlowTheme.title2.override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Lexend Deca',
                                 ),
                               ),
                             )
@@ -118,7 +118,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                       'Coffee (g)',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'DM Sans',
+                                        fontFamily: 'Lexend Deca',
                                       ),
                                     ),
                                     Padding(
@@ -127,7 +127,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                         '27',
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.primaryColor,
                                         ),
                                       ),
@@ -148,7 +148,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                       'Water (g)',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'DM Sans',
+                                        fontFamily: 'Lexend Deca',
                                       ),
                                     ),
                                     Padding(
@@ -157,7 +157,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                         '452',
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.primaryColor,
                                         ),
                                       ),
@@ -175,7 +175,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                   Text(
                                     'Ratio',
                                     style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'DM Sans',
+                                      fontFamily: 'Lexend Deca',
                                     ),
                                   ),
                                   Padding(
@@ -184,7 +184,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                                       '1/16',
                                       style:
                                           FlutterFlowTheme.subtitle1.override(
-                                        fontFamily: 'DM Sans',
+                                        fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.primaryColor,
                                       ),
                                     ),
@@ -214,7 +214,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                         Text(
                           'Brew Time',
                           style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Lexend Deca',
                           ),
                         ),
                         Padding(
@@ -222,7 +222,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                           child: Text(
                             '4:30',
                             style: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'DM Sans',
+                              fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.primaryColor,
                             ),
                           ),
@@ -237,7 +237,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                         '6',
                         textAlign: TextAlign.end,
                         style: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                         ),
                       ),
                     ),
@@ -264,7 +264,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                         Text(
                           'Grind Size',
                           style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Lexend Deca',
                           ),
                         ),
                         Padding(
@@ -272,7 +272,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                           child: Text(
                             '4.2',
                             style: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'DM Sans',
+                              fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.primaryColor,
                             ),
                           ),
@@ -288,7 +288,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                         Text(
                           'Grinder Used',
                           style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Lexend Deca',
                           ),
                         ),
                         Padding(
@@ -296,7 +296,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                           child: Text(
                             'Ode Brew Grinder',
                             style: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'DM Sans',
+                              fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.primaryColor,
                             ),
                           ),
@@ -321,7 +321,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                         Text(
                           'Notes',
                           style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Lexend Deca',
                           ),
                         ),
                         Padding(
@@ -329,7 +329,7 @@ class _CoffeeDetailsFilledWidgetState extends State<CoffeeDetailsFilledWidget> {
                           child: Text(
                             'This coffee sure was tasty, I really enjoyed the floral flavor.',
                             style: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'DM Sans',
+                              fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.primaryColor,
                             ),
                           ),

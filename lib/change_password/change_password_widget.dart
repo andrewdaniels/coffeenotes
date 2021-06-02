@@ -55,7 +55,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 child: Text(
                   'Change Password',
                   style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Lexend Deca',
                   ),
                 ),
               )
@@ -72,7 +72,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                     child: Text(
                       'Enter the email associated with your acount below & we will send you a reset link.',
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                       ),
                     ),
                   ),
@@ -127,7 +127,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       height: 50,
                       color: FlutterFlowTheme.primaryColor,
                       textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),

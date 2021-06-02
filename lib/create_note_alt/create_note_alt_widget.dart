@@ -8,8 +8,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateNoteNewWidget extends StatefulWidget {
-  CreateNoteNewWidget({
+class CreateNoteAltWidget extends StatefulWidget {
+  CreateNoteAltWidget({
     Key key,
     this.lastGrinderUsed,
   }) : super(key: key);
@@ -17,14 +17,14 @@ class CreateNoteNewWidget extends StatefulWidget {
   final String lastGrinderUsed;
 
   @override
-  _CreateNoteNewWidgetState createState() => _CreateNoteNewWidgetState();
+  _CreateNoteAltWidgetState createState() => _CreateNoteAltWidgetState();
 }
 
-class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
+class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
+  TextEditingController brewTimeController;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
-  TextEditingController textController4;
   TextEditingController textController5;
   TextEditingController textController6;
   TextEditingController textController7;
@@ -33,10 +33,10 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
   @override
   void initState() {
     super.initState();
+    brewTimeController = TextEditingController();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController();
-    textController4 = TextEditingController();
     textController5 = TextEditingController();
     textController6 = TextEditingController(text: widget.lastGrinderUsed);
     textController7 = TextEditingController();
@@ -53,44 +53,44 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
         if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
         }
-        List<CoffeeNotesRecord> createNoteNewCoffeeNotesRecordList =
+        List<CoffeeNotesRecord> createNoteAltCoffeeNotesRecordList =
             snapshot.data;
         // Customize what your widget looks like with no query results.
         if (snapshot.data.isEmpty) {
           // return Container();
           // For now, we'll just include some dummy data.
-          createNoteNewCoffeeNotesRecordList =
+          createNoteAltCoffeeNotesRecordList =
               createDummyCoffeeNotesRecord(count: 1);
         }
-        final createNoteNewCoffeeNotesRecord =
-            createNoteNewCoffeeNotesRecordList.first;
+        final createNoteAltCoffeeNotesRecord =
+            createNoteAltCoffeeNotesRecordList.first;
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.tertiaryColor,
+            backgroundColor: FlutterFlowTheme.primaryColor,
             automaticallyImplyLeading: true,
             leading: InkWell(
               onTap: () async {
                 Navigator.pop(context);
               },
               child: Icon(
-                Icons.arrow_back,
+                Icons.close_rounded,
                 color: Color(0xFF8B97A2),
                 size: 24,
               ),
             ),
             title: Text(
               'Create Note',
-              style: FlutterFlowTheme.subtitle1.override(
+              style: FlutterFlowTheme.title2.override(
                 fontFamily: 'Lexend Deca',
-                color: FlutterFlowTheme.primaryColor,
+                color: FlutterFlowTheme.tertiaryColor,
               ),
             ),
             actions: [],
-            centerTitle: true,
+            centerTitle: false,
             elevation: 0,
           ),
-          backgroundColor: FlutterFlowTheme.tertiaryColor,
+          backgroundColor: FlutterFlowTheme.primaryColor,
           body: SafeArea(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -122,7 +122,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
+                                  color: Color(0xFF353D43),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -134,7 +134,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
+                                  color: Color(0xFF353D43),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -147,7 +147,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                             ),
                             style: FlutterFlowTheme.title3.override(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.tertiaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -184,7 +184,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -196,7 +196,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -209,7 +209,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                 ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -239,7 +239,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -251,7 +251,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -264,7 +264,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                 ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -284,7 +284,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                           child: TextFormField(
-                            controller: textController4,
+                            controller: brewTimeController,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Brew Time',
@@ -299,7 +299,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
+                                  color: Color(0xFF353D43),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -311,7 +311,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
+                                  color: Color(0xFF353D43),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -324,7 +324,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.tertiaryColor,
                             ),
                           ),
                         ),
@@ -361,7 +361,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -373,7 +373,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -386,7 +386,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                 ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -417,7 +417,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -429,7 +429,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
+                                      color: Color(0xFF353D43),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -442,7 +442,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                 ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: FlutterFlowTheme.tertiaryColor,
                                 ),
                               ),
                             )
@@ -462,10 +462,10 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                         width: 343,
                         height: 120,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: FlutterFlowTheme.primaryColor,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                            color: Color(0xFFDBE2E7),
+                            color: Color(0xFF353D43),
                             width: 2,
                           ),
                         ),
@@ -507,7 +507,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           ),
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.primaryColor,
+                            color: FlutterFlowTheme.tertiaryColor,
                           ),
                         ),
                       )
@@ -521,10 +521,9 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                       final coffeeName = textController1.text;
                       final coffeeWeight = int.parse(textController2.text);
                       final waterWeight = int.parse(textController3.text);
-                      final brewTime = textController4.text;
+                      final brewTime = brewTimeController.text;
                       final grindSize = int.parse(textController5.text);
                       final grinderType = textController6.text;
-                      final coffeeRating = 0;
                       final coffeeNotes = textController7.text;
                       final timeStamp = getCurrentTimestamp;
 
@@ -535,7 +534,6 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                         brewTime: brewTime,
                         grindSize: grindSize,
                         grinderType: grinderType,
-                        coffeeRating: coffeeRating,
                         coffeeNotes: coffeeNotes,
                         timeStamp: timeStamp,
                       );
@@ -556,10 +554,10 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                     options: FFButtonOptions(
                       width: 230,
                       height: 50,
-                      color: FlutterFlowTheme.primaryColor,
+                      color: FlutterFlowTheme.tertiaryColor,
                       textStyle: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Lexend Deca',
-                        color: Colors.white,
+                        color: FlutterFlowTheme.primaryColor,
                       ),
                       elevation: 3,
                       borderSide: BorderSide(

@@ -61,7 +61,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   Text(
                     'Register',
                     style: FlutterFlowTheme.title1.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Lexend Deca',
                     ),
                   )
                 ],
@@ -78,7 +78,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       child: Text(
                         'Create an account below, by entering your information.',
                         style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                         ),
                       ),
                     ),
@@ -98,12 +98,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: InputDecoration(
                         labelText: 'Email Address',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         hintText: 'Enter your email address...',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -132,7 +132,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
@@ -152,12 +152,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         hintText: 'Enter Password',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -186,7 +186,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: Color(0xFF14181B),
                       ),
                     ),
@@ -206,12 +206,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         hintText: 'Enter Password',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -240,7 +240,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
@@ -302,7 +302,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       height: 50,
                       color: FlutterFlowTheme.primaryColor,
                       textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),

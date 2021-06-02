@@ -27,7 +27,7 @@ class _SecondaryButtonWidgetState extends State<SecondaryButtonWidget> {
         height: 50,
         color: FlutterFlowTheme.tertiaryColor,
         textStyle: FlutterFlowTheme.subtitle2.override(
-          fontFamily: 'DM Sans',
+          fontFamily: 'Lexend Deca',
           color: FlutterFlowTheme.primaryColor,
           fontWeight: FontWeight.w600,
         ),

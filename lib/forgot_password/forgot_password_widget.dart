@@ -56,7 +56,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   child: Text(
                     'Forgot Password',
                     style: FlutterFlowTheme.title1.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Lexend Deca',
                     ),
                   ),
                 )
@@ -73,7 +73,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                       child: Text(
                         'Enter the email associated with your acount below.',
                         style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                         ),
                       ),
                     ),
@@ -128,7 +128,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         height: 50,
                         color: FlutterFlowTheme.primaryColor,
                         textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),

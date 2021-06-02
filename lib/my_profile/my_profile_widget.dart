@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../splash/splash_widget.dart';
+import '../onboarding1/onboarding1_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,7 +32,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                 child: Text(
                   'My Profile',
                   style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Lexend Deca',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -75,7 +75,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               Text(
                                 'Change Password',
                                 style: FlutterFlowTheme.subtitle1.override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Lexend Deca',
                                 ),
                               ),
                               Expanded(
@@ -123,7 +123,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                           Text(
                             'Notifications',
                             style: FlutterFlowTheme.subtitle1.override(
-                              fontFamily: 'DM Sans',
+                              fontFamily: 'Lexend Deca',
                             ),
                           ),
                           Expanded(
@@ -156,7 +156,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                     await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SplashWidget(),
+                        builder: (context) => Onboarding1Widget(),
                       ),
                       (r) => false,
                     );
@@ -167,7 +167,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                     height: 50,
                     color: FlutterFlowTheme.tertiaryColor,
                     textStyle: FlutterFlowTheme.subtitle2.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Lexend Deca',
                       color: Color(0xFFEE6262),
                       fontWeight: FontWeight.w600,
                     ),

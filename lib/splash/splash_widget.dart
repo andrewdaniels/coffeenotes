@@ -90,7 +90,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
-                                            fontFamily: 'DM Sans',
+                                            fontFamily: 'Lexend Deca',
                                           ),
                                         ),
                                       ),
@@ -113,7 +113,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                       textAlign: TextAlign.center,
                                       style:
                                           FlutterFlowTheme.bodyText2.override(
-                                        fontFamily: 'DM Sans',
+                                        fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                       ),
                                     ),
@@ -163,7 +163,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                               textStyle: FlutterFlowTheme
                                                   .subtitle2
                                                   .override(
-                                                fontFamily: 'DM Sans',
+                                                fontFamily: 'Lexend Deca',
                                                 color: Colors.white,
                                               ),
                                               elevation: 3,
@@ -205,7 +205,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                               textStyle: FlutterFlowTheme
                                                   .subtitle2
                                                   .override(
-                                                fontFamily: 'DM Sans',
+                                                fontFamily: 'Lexend Deca',
                                                 color: FlutterFlowTheme
                                                     .primaryColor,
                                               ),
