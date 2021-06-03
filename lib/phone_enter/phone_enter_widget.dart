@@ -1,24 +1,23 @@
-import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ForgotPasswordWidget extends StatefulWidget {
-  ForgotPasswordWidget({Key key}) : super(key: key);
+class PhoneEnterWidget extends StatefulWidget {
+  PhoneEnterWidget({Key key}) : super(key: key);
 
   @override
-  _ForgotPasswordWidgetState createState() => _ForgotPasswordWidgetState();
+  _PhoneEnterWidgetState createState() => _PhoneEnterWidgetState();
 }
 
-class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
-  TextEditingController emailTextController;
+class _PhoneEnterWidgetState extends State<PhoneEnterWidget> {
+  TextEditingController inputNormalController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
+    inputNormalController = TextEditingController();
   }
 
   @override
@@ -47,19 +46,20 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                  child: Text(
-                    'Forgot Password',
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Phone Number',
                     style: FlutterFlowTheme.title1.override(
                       fontFamily: 'Lexend Deca',
+                      color: FlutterFlowTheme.primaryColor,
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
@@ -70,7 +70,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(0, 4, 70, 0),
                       child: Text(
-                        'Enter the email associated with your acount below.',
+                        'Enter a valid phone number below.',
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                         ),
@@ -81,7 +81,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -89,22 +89,22 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                       child: TextFormField(
-                        controller: emailTextController,
+                        controller: inputNormalController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Email Address',
+                          labelText: 'Phone Number',
                           labelStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.secondaryColor,
                           ),
-                          hintText: 'Email associated with your account...',
+                          hintText: '(123) 456-7890',
                           hintStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.secondaryColor,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFDBE2E7),
+                              color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.only(
@@ -116,7 +116,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFDBE2E7),
+                              color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.only(
@@ -138,49 +138,32 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+              padding: EdgeInsets.fromLTRB(20, 24, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        if (emailTextController.text.isEmpty) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Email required!',
-                              ),
-                            ),
-                          );
-                          return;
-                        }
-                        await resetPassword(
-                          email: emailTextController.text,
-                          context: context,
-                        );
-                        Navigator.pop(context);
-                      },
-                      text: 'Submit',
-                      options: FFButtonOptions(
-                        width: 130,
-                        height: 50,
-                        color: FlutterFlowTheme.primaryColor,
-                        textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        elevation: 3,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: 12,
+                  FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: 'Send Code',
+                    options: FFButtonOptions(
+                      width: 140,
+                      height: 50,
+                      color: FlutterFlowTheme.primaryColor,
+                      textStyle: FlutterFlowTheme.subtitle2.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
                       ),
+                      elevation: 3,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 12,
                     ),
                   )
                 ],

@@ -85,7 +85,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
                   child: InputNormalWidget(
                     inputValue: 'Email Address',
                     inputHint: 'Email address here...',

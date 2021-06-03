@@ -86,59 +86,62 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 ],
               ),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                    child: TextFormField(
-                      controller: inputNormalController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Email Address',
-                        labelStyle: FlutterFlowTheme.bodyText1.override(
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                      child: TextFormField(
+                        controller: inputNormalController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Email Address',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.secondaryColor,
+                          ),
+                          hintText: 'Enter your email address...',
+                          hintStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.secondaryColor,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFDBE2E7),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFDBE2E7),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8),
+                            ),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.secondaryColor,
+                          color: FlutterFlowTheme.primaryColor,
                         ),
-                        hintText: 'Enter your email address...',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.secondaryColor,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
             Row(
               mainAxisSize: MainAxisSize.max,
