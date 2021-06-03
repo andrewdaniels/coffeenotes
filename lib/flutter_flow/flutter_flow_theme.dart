@@ -11,43 +11,43 @@ class FlutterFlowTheme {
   String secondaryFontFamily = 'Roboto';
 
   static TextStyle get title1 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF090F13),
         fontWeight: FontWeight.bold,
         fontSize: 32,
       );
   static TextStyle get title2 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF090F13),
         fontWeight: FontWeight.bold,
         fontSize: 22,
       );
   static TextStyle get title3 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF090F13),
         fontWeight: FontWeight.bold,
         fontSize: 20,
       );
   static TextStyle get subtitle1 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF8B97A2),
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
   static TextStyle get subtitle2 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: primaryColor,
         fontWeight: FontWeight.w500,
         fontSize: 16,
       );
   static TextStyle get bodyText1 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF57636C),
         fontWeight: FontWeight.w500,
         fontSize: 14,
       );
   static TextStyle get bodyText2 => GoogleFonts.getFont(
-        'DM Sans',
+        'Lexend Deca',
         color: Color(0xFF8B97A2),
         fontWeight: FontWeight.w500,
         fontSize: 12,

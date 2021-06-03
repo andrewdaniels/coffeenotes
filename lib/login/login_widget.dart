@@ -59,7 +59,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                   Text(
                     'Login',
                     style: FlutterFlowTheme.title1.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Lexend Deca',
+                      color: FlutterFlowTheme.primaryColor,
                     ),
                   )
                 ],
@@ -76,7 +77,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       child: Text(
                         'Enter your information below to access your account.',
                         style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                         ),
                       ),
                     ),
@@ -96,17 +97,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                       decoration: InputDecoration(
                         labelText: 'Email Address',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         hintText: 'Enter your email here...',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -118,7 +119,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -130,7 +131,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
@@ -150,17 +151,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         hintText: 'Enter Password',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.secondaryColor,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -172,7 +173,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
+                            color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.only(
@@ -184,7 +185,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'DM Sans',
+                        fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
@@ -215,7 +216,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                         height: 50,
                         color: FlutterFlowTheme.tertiaryColor,
                         textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.primaryColor,
                         ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
@@ -252,7 +254,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         height: 50,
                         color: FlutterFlowTheme.primaryColor,
                         textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'DM Sans',
+                          fontFamily: 'Lexend Deca',
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),

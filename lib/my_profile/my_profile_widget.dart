@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../splash/splash_widget.dart';
+import '../onboarding1/onboarding1_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,7 +32,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                 child: Text(
                   'My Profile',
                   style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Lexend Deca',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -75,7 +75,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               Text(
                                 'Change Password',
                                 style: FlutterFlowTheme.subtitle1.override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Lexend Deca',
                                 ),
                               ),
                               Expanded(
@@ -98,52 +98,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
               )
             ],
           ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.tertiaryColor,
-                  shape: BoxShape.rectangle,
-                  border: Border.all(
-                    color: Color(0xFFEEEEEE),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(24, 0, 16, 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Notifications',
-                            style: FlutterFlowTheme.subtitle1.override(
-                              fontFamily: 'DM Sans',
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment(1, 0),
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.secondaryColor,
-                                size: 20,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
             child: Row(
@@ -156,7 +110,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                     await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SplashWidget(),
+                        builder: (context) => Onboarding1Widget(),
                       ),
                       (r) => false,
                     );
@@ -167,7 +121,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                     height: 50,
                     color: FlutterFlowTheme.tertiaryColor,
                     textStyle: FlutterFlowTheme.subtitle2.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Lexend Deca',
                       color: Color(0xFFEE6262),
                       fontWeight: FontWeight.w600,
                     ),

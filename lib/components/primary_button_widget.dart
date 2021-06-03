@@ -27,7 +27,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
         height: 50,
         color: FlutterFlowTheme.primaryColor,
         textStyle: FlutterFlowTheme.subtitle2.override(
-          fontFamily: 'DM Sans',
+          fontFamily: 'Lexend Deca',
           color: FlutterFlowTheme.tertiaryColor,
           fontWeight: FontWeight.w600,
         ),

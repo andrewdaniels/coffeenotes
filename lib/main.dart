@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
-import 'package:sample_app_coffee_notes/splash/splash_widget.dart';
+import 'package:sample_app_coffee_notes/onboarding1/onboarding1_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'my_profile/my_profile_widget.dart';
 import 'home_page/home_page_widget.dart';
+import 'my_profile/my_profile_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,14 +35,18 @@ class _MyAppState extends State<MyApp> {
       title: 'Sample App - Coffee Notes',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null
-          ? const Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Color(0xff4b39ef)),
+          ? Center(
+              child: Builder(
+                builder: (context) => Image.asset(
+                  'assets/images/splash@3x.png',
+                  width: MediaQuery.of(context).size.width / 2,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             )
           : currentUser.loggedIn
               ? NavBarPage()
-              : SplashWidget(),
+              : Onboarding1Widget(),
     );
   }
 }
@@ -69,24 +73,13 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'MyProfile': MyProfileWidget(),
       'HomePage': HomePageWidget(),
+      'MyProfile': MyProfileWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_outline,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.person,
-              size: 24,
-            ),
-            label: 'My Profile',
-          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.library_books_outlined,
@@ -97,6 +90,17 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'My Brews',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.person,
+              size: 24,
+            ),
+            label: 'My Profile',
           )
         ],
         backgroundColor: Colors.white,

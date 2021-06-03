@@ -42,13 +42,13 @@ class _LargeInputWidgetState extends State<LargeInputWidget> {
                 decoration: InputDecoration(
                   labelText: widget.inputLabel,
                   labelStyle: FlutterFlowTheme.title3.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Lexend Deca',
                     color: FlutterFlowTheme.secondaryColor,
                     fontWeight: FontWeight.w500,
                   ),
                   hintText: widget.inputHint,
                   hintStyle: FlutterFlowTheme.title3.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Lexend Deca',
                     color: FlutterFlowTheme.secondaryColor,
                     fontWeight: FontWeight.w500,
                   ),
@@ -78,7 +78,7 @@ class _LargeInputWidgetState extends State<LargeInputWidget> {
                   ),
                 ),
                 style: FlutterFlowTheme.title3.override(
-                  fontFamily: 'DM Sans',
+                  fontFamily: 'Lexend Deca',
                   color: FlutterFlowTheme.primaryColor,
                   fontWeight: FontWeight.w500,
                 ),

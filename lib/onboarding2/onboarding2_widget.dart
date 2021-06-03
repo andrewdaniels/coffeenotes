@@ -54,7 +54,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         'Enterprise Plan',
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                         ),
                                       )
                                     ],
@@ -69,7 +69,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                           '\$150/mo',
                                           style:
                                               FlutterFlowTheme.title1.override(
-                                            fontFamily: 'DM Sans',
+                                            fontFamily: 'Lexend Deca',
                                             color:
                                                 FlutterFlowTheme.tertiaryColor,
                                             fontSize: 36,
@@ -87,7 +87,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         textAlign: TextAlign.start,
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           fontSize: 16,
                                         ),
                                       )
@@ -112,7 +112,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                             textStyle: FlutterFlowTheme
                                                 .subtitle2
                                                 .override(
-                                              fontFamily: 'DM Sans',
+                                              fontFamily: 'Lexend Deca',
                                               color: Colors.black,
                                             ),
                                             elevation: 3,
@@ -149,7 +149,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         'Enterprise Plan',
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                         ),
                                       )
                                     ],
@@ -164,7 +164,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                           '\$150/mo',
                                           style:
                                               FlutterFlowTheme.title1.override(
-                                            fontFamily: 'DM Sans',
+                                            fontFamily: 'Lexend Deca',
                                             color:
                                                 FlutterFlowTheme.primaryColor,
                                             fontSize: 36,
@@ -182,7 +182,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         textAlign: TextAlign.start,
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           fontSize: 16,
                                         ),
                                       )
@@ -207,7 +207,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                             textStyle: FlutterFlowTheme
                                                 .subtitle2
                                                 .override(
-                                              fontFamily: 'DM Sans',
+                                              fontFamily: 'Lexend Deca',
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                             ),
@@ -245,7 +245,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         'Enterprise Plan',
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           color: Color(0xFF1D2429),
                                         ),
                                       )
@@ -261,7 +261,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                           '\$150/mo',
                                           style:
                                               FlutterFlowTheme.title1.override(
-                                            fontFamily: 'DM Sans',
+                                            fontFamily: 'Lexend Deca',
                                             color:
                                                 FlutterFlowTheme.tertiaryColor,
                                             fontSize: 36,
@@ -279,7 +279,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                         textAlign: TextAlign.start,
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Lexend Deca',
                                           color: Color(0xFF1D2429),
                                           fontSize: 16,
                                         ),
@@ -305,7 +305,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                             textStyle: FlutterFlowTheme
                                                 .subtitle2
                                                 .override(
-                                              fontFamily: 'DM Sans',
+                                              fontFamily: 'Lexend Deca',
                                               color: Colors.black,
                                             ),
                                             elevation: 3,

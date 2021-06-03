@@ -35,12 +35,12 @@ class _InputPasswordWidgetState extends State<InputPasswordWidget> {
         decoration: InputDecoration(
           labelText: widget.inputValue,
           labelStyle: FlutterFlowTheme.bodyText1.override(
-            fontFamily: 'DM Sans',
+            fontFamily: 'Lexend Deca',
             color: FlutterFlowTheme.secondaryColor,
           ),
           hintText: widget.inputHint,
           hintStyle: FlutterFlowTheme.bodyText1.override(
-            fontFamily: 'DM Sans',
+            fontFamily: 'Lexend Deca',
             color: FlutterFlowTheme.secondaryColor,
           ),
           enabledBorder: OutlineInputBorder(
@@ -69,7 +69,7 @@ class _InputPasswordWidgetState extends State<InputPasswordWidget> {
           ),
         ),
         style: FlutterFlowTheme.bodyText1.override(
-          fontFamily: 'DM Sans',
+          fontFamily: 'Lexend Deca',
           color: FlutterFlowTheme.primaryColor,
         ),
       ),
