@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
@@ -15,16 +16,20 @@ class RegisterWidget extends StatefulWidget {
 
 class _RegisterWidgetState extends State<RegisterWidget> {
   TextEditingController confirmPasswordTextController;
+  bool passwordVisibility2;
   TextEditingController inputNormalController;
   TextEditingController passwordTextController;
+  bool passwordVisibility1;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     confirmPasswordTextController = TextEditingController();
+    passwordVisibility2 = false;
     inputNormalController = TextEditingController();
     passwordTextController = TextEditingController();
+    passwordVisibility1 = false;
   }
 
   @override
@@ -86,59 +91,63 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 ],
               ),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                    child: TextFormField(
-                      controller: inputNormalController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Email Address',
-                        labelStyle: FlutterFlowTheme.bodyText1.override(
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                      child: TextFormField(
+                        controller: inputNormalController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Email Address',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.secondaryColor,
+                          ),
+                          hintText: 'Enter your email address...',
+                          hintStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.secondaryColor,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFDBE2E7),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFDBE2E7),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8),
+                            ),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.secondaryColor,
+                          color: FlutterFlowTheme.primaryColor,
                         ),
-                        hintText: 'Enter your email address...',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.secondaryColor,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFDBE2E7),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.primaryColor,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -148,7 +157,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
                     child: TextFormField(
                       controller: passwordTextController,
-                      obscureText: true,
+                      obscureText: !passwordVisibility1,
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
@@ -184,6 +193,17 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             topRight: Radius.circular(8),
                           ),
                         ),
+                        suffixIcon: InkWell(
+                          onTap: () => setState(
+                            () => passwordVisibility1 = !passwordVisibility1,
+                          ),
+                          child: Icon(
+                            passwordVisibility1
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            size: 22,
+                          ),
+                        ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Lexend Deca',
@@ -202,7 +222,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                     child: TextFormField(
                       controller: confirmPasswordTextController,
-                      obscureText: true,
+                      obscureText: !passwordVisibility2,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
@@ -236,6 +256,17 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             bottomRight: Radius.circular(8),
                             topLeft: Radius.circular(8),
                             topRight: Radius.circular(8),
+                          ),
+                        ),
+                        suffixIcon: InkWell(
+                          onTap: () => setState(
+                            () => passwordVisibility2 = !passwordVisibility2,
+                          ),
+                          child: Icon(
+                            passwordVisibility2
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            size: 22,
                           ),
                         ),
                       ),
@@ -289,9 +320,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                       await Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'HomePage'),
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 150),
+                          reverseDuration: Duration(milliseconds: 150),
+                          child: NavBarPage(initialPage: 'HomePage'),
                         ),
                         (r) => false,
                       );

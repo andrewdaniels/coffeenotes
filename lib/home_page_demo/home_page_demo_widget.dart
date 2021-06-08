@@ -1,5 +1,6 @@
 import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,8 +23,11 @@ class _HomePageDemoWidgetState extends State<HomePageDemoWidget> {
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => CreateNoteNewWidget(),
+            PageTransition(
+              type: PageTransitionType.rightToLeft,
+              duration: Duration(milliseconds: 150),
+              reverseDuration: Duration(milliseconds: 150),
+              child: CreateNoteNewWidget(),
             ),
           );
         },

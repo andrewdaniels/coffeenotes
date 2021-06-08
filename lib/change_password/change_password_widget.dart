@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../components/input_normal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,7 +86,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
                   child: InputNormalWidget(
                     inputValue: 'Email Address',
                     inputHint: 'Email address here...',
