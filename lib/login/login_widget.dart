@@ -1,11 +1,13 @@
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
 import '../main.dart';
 import '../phone_enter/phone_enter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LoginWidget extends StatefulWidget {
   LoginWidget({Key key}) : super(key: key);
@@ -17,6 +19,7 @@ class LoginWidget extends StatefulWidget {
 class _LoginWidgetState extends State<LoginWidget> {
   TextEditingController inputNormalController;
   TextEditingController passwordTextController;
+  bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -24,6 +27,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     inputNormalController = TextEditingController();
     passwordTextController = TextEditingController();
+    passwordVisibility = false;
   }
 
   @override
@@ -137,6 +141,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.primaryColor,
                         ),
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                   )
@@ -151,7 +156,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                     child: TextFormField(
                       controller: passwordTextController,
-                      obscureText: true,
+                      obscureText: !passwordVisibility,
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
@@ -187,6 +192,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                             topRight: Radius.circular(8),
                           ),
                         ),
+                        suffixIcon: InkWell(
+                          onTap: () => setState(
+                            () => passwordVisibility = !passwordVisibility,
+                          ),
+                          child: Icon(
+                            passwordVisibility
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            color: FlutterFlowTheme.secondaryColor,
+                            size: 20,
+                          ),
+                        ),
                       ),
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Lexend Deca',
@@ -209,8 +226,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                       onPressed: () async {
                         await Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => ForgotPasswordWidget(),
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 150),
+                            reverseDuration: Duration(milliseconds: 150),
+                            child: ForgotPasswordWidget(),
                           ),
                         );
                       },
@@ -245,9 +265,11 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                         await Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                NavBarPage(initialPage: 'HomePage'),
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 150),
+                            reverseDuration: Duration(milliseconds: 150),
+                            child: NavBarPage(initialPage: 'HomePage'),
                           ),
                           (r) => false,
                         );
@@ -280,8 +302,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                 onPressed: () async {
                   await Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => PhoneEnterWidget(),
+                    PageTransition(
+                      type: PageTransitionType.rightToLeft,
+                      duration: Duration(milliseconds: 150),
+                      reverseDuration: Duration(milliseconds: 150),
+                      child: PhoneEnterWidget(),
                     ),
                   );
                 },

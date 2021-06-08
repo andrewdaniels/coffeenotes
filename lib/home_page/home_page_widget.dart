@@ -2,8 +2,10 @@ import '../backend/backend.dart';
 import '../coffee_details/coffee_details_widget.dart';
 import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomePageWidget extends StatefulWidget {
   HomePageWidget({Key key}) : super(key: key);
@@ -46,8 +48,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             onPressed: () async {
               await Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => CreateNoteNewWidget(
+                PageTransition(
+                  type: PageTransitionType.bottomToTop,
+                  duration: Duration(milliseconds: 200),
+                  reverseDuration: Duration(milliseconds: 200),
+                  child: CreateNoteNewWidget(
                     lastGrinderUsed:
                         floatingActionButtonCoffeeNotesRecord.grinderType,
                   ),
@@ -103,6 +108,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   return Center(
                     child: Image.asset(
                       'assets/images/emptyNotes@2x.png',
+                      width: 375,
                     ),
                   );
                 }
@@ -110,14 +116,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   onTap: () async {
                     await Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => CreateNoteNewWidget(),
+                      PageTransition(
+                        type: PageTransitionType.bottomToTop,
+                        duration: Duration(milliseconds: 200),
+                        reverseDuration: Duration(milliseconds: 200),
+                        child: CreateNoteNewWidget(),
                       ),
                     );
                   },
                   child: SingleChildScrollView(
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       children: List.generate(
                           columnCoffeeNotesRecordList.length, (columnIndex) {
                         final columnCoffeeNotesRecord =
@@ -135,9 +144,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     onTap: () async {
                                       await Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              CoffeeDetailsWidget(),
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 150),
+                                          reverseDuration:
+                                              Duration(milliseconds: 150),
+                                          child: CoffeeDetailsWidget(),
                                         ),
                                       );
                                     },

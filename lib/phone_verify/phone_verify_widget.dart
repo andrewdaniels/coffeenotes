@@ -1,5 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -131,6 +134,7 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget> {
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.primaryColor,
                         ),
+                        keyboardType: TextInputType.number,
                       ),
                     ),
                   )
@@ -145,8 +149,32 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      if (inputNormalController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Enter SMS verification code.'),
+                          ),
+                        );
+                        return;
+                      }
+                      final phoneVerifiedUser = await verifySmsCode(
+                        context: context,
+                        smsCode: inputNormalController.text,
+                      );
+                      if (phoneVerifiedUser == null) {
+                        return;
+                      }
+                      await Navigator.pushAndRemoveUntil(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 150),
+                          reverseDuration: Duration(milliseconds: 150),
+                          child: NavBarPage(initialPage: 'HomePage'),
+                        ),
+                        (r) => false,
+                      );
                     },
                     text: 'Verify',
                     options: FFButtonOptions(

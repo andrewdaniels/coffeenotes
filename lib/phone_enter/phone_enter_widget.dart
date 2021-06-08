@@ -1,5 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../phone_verify/phone_verify_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -131,6 +134,7 @@ class _PhoneEnterWidgetState extends State<PhoneEnterWidget> {
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.primaryColor,
                         ),
+                        keyboardType: TextInputType.phone,
                       ),
                     ),
                   )
@@ -145,8 +149,33 @@ class _PhoneEnterWidgetState extends State<PhoneEnterWidget> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      if (inputNormalController.text.isEmpty ||
+                          !inputNormalController.text.startsWith('+')) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                'Phone Number is required and has to start with +.'),
+                          ),
+                        );
+                        return;
+                      }
+                      await beginPhoneAuth(
+                        context: context,
+                        phoneNumber: inputNormalController.text,
+                        onCodeSent: () async {
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 150),
+                              reverseDuration: Duration(milliseconds: 150),
+                              child: PhoneVerifyWidget(),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                      );
                     },
                     text: 'Send Code',
                     options: FFButtonOptions(

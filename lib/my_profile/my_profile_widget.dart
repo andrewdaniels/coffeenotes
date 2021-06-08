@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboarding1/onboarding1_widget.dart';
 import 'package:flutter/material.dart';
@@ -48,8 +49,11 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                   onTap: () async {
                     await Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangePasswordWidget(),
+                      PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        duration: Duration(milliseconds: 150),
+                        reverseDuration: Duration(milliseconds: 150),
+                        child: ChangePasswordWidget(),
                       ),
                     );
                   },
@@ -109,8 +113,11 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                     await signOut();
                     await Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => Onboarding1Widget(),
+                      PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        duration: Duration(milliseconds: 150),
+                        reverseDuration: Duration(milliseconds: 150),
+                        child: Onboarding1Widget(),
                       ),
                       (r) => false,
                     );

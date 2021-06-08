@@ -486,7 +486,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.transparent,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -496,7 +496,7 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.transparent,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -543,9 +543,11 @@ class _CreateNoteAltWidgetState extends State<CreateNoteAltWidget> {
                           .set(coffeeNotesRecordData);
                       await Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'HomePage'),
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 150),
+                          reverseDuration: Duration(milliseconds: 150),
+                          child: NavBarPage(initialPage: 'HomePage'),
                         ),
                         (r) => false,
                       );

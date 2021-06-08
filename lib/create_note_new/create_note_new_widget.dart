@@ -211,6 +211,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.primaryColor,
                                 ),
+                                keyboardType: TextInputType.number,
                               ),
                             )
                           ],
@@ -266,6 +267,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.primaryColor,
                                 ),
+                                keyboardType: TextInputType.number,
                               ),
                             )
                           ],
@@ -458,56 +460,60 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.92,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            color: Color(0xFFDBE2E7),
-                            width: 2,
-                          ),
-                        ),
-                        child: TextFormField(
-                          controller: textController7,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Coffee Notes',
-                            labelStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.secondaryColor,
-                            ),
-                            hintText:
-                                'Enter what you thought of the coffee here...',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.secondaryColor,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
+                      Expanded(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.92,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: Color(0xFFDBE2E7),
+                              width: 2,
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.primaryColor,
+                          child: TextFormField(
+                            controller: textController7,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Coffee Notes',
+                              labelStyle: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.secondaryColor,
+                              ),
+                              hintText:
+                                  'Enter what you thought of the coffee here...',
+                              hintStyle: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.secondaryColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                            ),
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.primaryColor,
+                            ),
+                            textAlign: TextAlign.start,
+                            keyboardType: TextInputType.multiline,
                           ),
                         ),
                       )
@@ -545,9 +551,11 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           .set(coffeeNotesRecordData);
                       await Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'HomePage'),
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 200),
+                          reverseDuration: Duration(milliseconds: 200),
+                          child: NavBarPage(initialPage: 'HomePage'),
                         ),
                         (r) => false,
                       );
