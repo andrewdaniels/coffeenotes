@@ -2,6 +2,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:latlong/latlong.dart';
 
 import 'schema_util.dart';
 import 'serializers.dart';
@@ -35,7 +36,7 @@ abstract class CoffeeNotesRecord
   int get coffeeRating;
 
   @nullable
-  Timestamp get timeStamp;
+  DateTime get timeStamp;
 
   @nullable
   String get coffeeNotes;
@@ -74,10 +75,10 @@ Map<String, dynamic> createCoffeeNotesRecordData({
   int grindSize,
   String grinderType,
   int coffeeRating,
-  Timestamp timeStamp,
+  DateTime timeStamp,
   String coffeeNotes,
 }) =>
-    serializers.serializeWith(
+    serializers.toFirestore(
         CoffeeNotesRecord.serializer,
         CoffeeNotesRecord((c) => c
           ..coffeeName = coffeeName

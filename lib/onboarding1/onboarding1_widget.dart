@@ -5,6 +5,7 @@ import '../login/login_widget.dart';
 import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding1Widget extends StatefulWidget {

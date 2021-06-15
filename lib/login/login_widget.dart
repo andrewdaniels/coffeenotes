@@ -224,7 +224,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     padding: EdgeInsets.fromLTRB(0, 0, 70, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await Navigator.push(
+                        await Navigator.pushAndRemoveUntil(
                           context,
                           PageTransition(
                             type: PageTransitionType.rightToLeft,
@@ -232,6 +232,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             reverseDuration: Duration(milliseconds: 150),
                             child: ForgotPasswordWidget(),
                           ),
+                          (r) => false,
                         );
                       },
                       text: 'Forgot Passord?',
@@ -263,7 +264,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           return;
                         }
 
-                        await Navigator.pushAndRemoveUntil(
+                        await Navigator.push(
                           context,
                           PageTransition(
                             type: PageTransitionType.rightToLeft,
@@ -271,7 +272,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                             reverseDuration: Duration(milliseconds: 150),
                             child: NavBarPage(initialPage: 'HomePage'),
                           ),
-                          (r) => false,
                         );
                       },
                       text: 'Login',

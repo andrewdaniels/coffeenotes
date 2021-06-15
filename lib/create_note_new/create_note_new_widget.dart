@@ -1,12 +1,13 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_drop_down_template.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CreateNoteNewWidget extends StatefulWidget {
   CreateNoteNewWidget({
@@ -21,6 +22,7 @@ class CreateNoteNewWidget extends StatefulWidget {
 }
 
 class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
+  String dropDownValue;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
@@ -455,6 +457,60 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                   ),
                 ),
                 Padding(
+                  padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.92,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.tertiaryColor,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: Color(0xFFDBE2E7),
+                            width: 2,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                          child: FlutterFlowDropDown(
+                            options: [
+                              'Coffee - v60',
+                              'Coffee - Chemex',
+                              'Coffee - Kalita Wave',
+                              'Coffee - Aeropress',
+                              'Coffee - Frenchpress',
+                              'Coffee - Other',
+                              'Espresso'
+                            ],
+                            onChanged: (value) {
+                              setState(() => dropDownValue = value);
+                            },
+                            width: 130,
+                            height: 50,
+                            textStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: Colors.black,
+                            ),
+                            icon: Icon(
+                              Icons.arrow_drop_down,
+                              size: 15,
+                            ),
+                            fillColor: Colors.white,
+                            elevation: 3,
+                            borderColor: FlutterFlowTheme.tertiaryColor,
+                            borderWidth: 0,
+                            borderRadius: 8,
+                            margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
                   padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -549,16 +605,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                       await CoffeeNotesRecord.collection
                           .doc()
                           .set(coffeeNotesRecordData);
-                      await Navigator.pushAndRemoveUntil(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          duration: Duration(milliseconds: 200),
-                          reverseDuration: Duration(milliseconds: 200),
-                          child: NavBarPage(initialPage: 'HomePage'),
-                        ),
-                        (r) => false,
-                      );
+                      Navigator.pop(context);
                     },
                     text: 'Save Note',
                     options: FFButtonOptions(
