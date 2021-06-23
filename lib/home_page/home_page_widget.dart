@@ -149,7 +149,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           duration: Duration(milliseconds: 150),
                                           reverseDuration:
                                               Duration(milliseconds: 150),
-                                          child: CoffeeDetailsWidget(),
+                                          child: CoffeeDetailsWidget(
+                                            coffeeNoteRecord:
+                                                columnCoffeeNotesRecord
+                                                    .reference,
+                                          ),
                                         ),
                                       );
                                     },

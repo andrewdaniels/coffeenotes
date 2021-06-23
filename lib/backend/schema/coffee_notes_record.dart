@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
@@ -27,9 +29,6 @@ abstract class CoffeeNotesRecord
   String get brewTime;
 
   @nullable
-  int get grindSize;
-
-  @nullable
   String get grinderType;
 
   @nullable
@@ -42,6 +41,9 @@ abstract class CoffeeNotesRecord
   String get coffeeNotes;
 
   @nullable
+  double get grindSize;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -50,10 +52,10 @@ abstract class CoffeeNotesRecord
     ..coffeeWeight = 0
     ..waterWeight = 0
     ..brewTime = ''
-    ..grindSize = 0
     ..grinderType = ''
     ..coffeeRating = 0
-    ..coffeeNotes = '';
+    ..coffeeNotes = ''
+    ..grindSize = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('coffeeNotes');
@@ -65,6 +67,11 @@ abstract class CoffeeNotesRecord
   CoffeeNotesRecord._();
   factory CoffeeNotesRecord([void Function(CoffeeNotesRecordBuilder) updates]) =
       _$CoffeeNotesRecord;
+
+  static CoffeeNotesRecord getDocumentFromData(
+          Map<String, dynamic> data, DocumentReference reference) =>
+      serializers.deserializeWith(
+          serializer, {...data, kDocumentReferenceField: reference});
 }
 
 Map<String, dynamic> createCoffeeNotesRecordData({
@@ -72,11 +79,11 @@ Map<String, dynamic> createCoffeeNotesRecordData({
   int coffeeWeight,
   int waterWeight,
   String brewTime,
-  int grindSize,
   String grinderType,
   int coffeeRating,
   DateTime timeStamp,
   String coffeeNotes,
+  double grindSize,
 }) =>
     serializers.toFirestore(
         CoffeeNotesRecord.serializer,
@@ -85,11 +92,11 @@ Map<String, dynamic> createCoffeeNotesRecordData({
           ..coffeeWeight = coffeeWeight
           ..waterWeight = waterWeight
           ..brewTime = brewTime
-          ..grindSize = grindSize
           ..grinderType = grinderType
           ..coffeeRating = coffeeRating
           ..timeStamp = timeStamp
-          ..coffeeNotes = coffeeNotes));
+          ..coffeeNotes = coffeeNotes
+          ..grindSize = grindSize));
 
 CoffeeNotesRecord get dummyCoffeeNotesRecord {
   final builder = CoffeeNotesRecordBuilder()
@@ -97,11 +104,11 @@ CoffeeNotesRecord get dummyCoffeeNotesRecord {
     ..coffeeWeight = dummyInteger
     ..waterWeight = dummyInteger
     ..brewTime = dummyString
-    ..grindSize = dummyInteger
     ..grinderType = dummyString
     ..coffeeRating = dummyInteger
     ..timeStamp = dummyTimestamp
-    ..coffeeNotes = dummyString;
+    ..coffeeNotes = dummyString
+    ..grindSize = dummyDouble;
   return builder.build();
 }
 

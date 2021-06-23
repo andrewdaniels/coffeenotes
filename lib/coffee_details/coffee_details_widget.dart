@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CoffeeDetailsWidget extends StatefulWidget {
   CoffeeDetailsWidget({
@@ -36,10 +37,15 @@ class _CoffeeDetailsWidgetState extends State<CoffeeDetailsWidget> {
             backgroundColor: Color(0xFFF1F4F8),
             iconTheme: IconThemeData(color: FlutterFlowTheme.primaryColor),
             automaticallyImplyLeading: false,
-            leading: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.secondaryColor,
-              size: 24,
+            leading: InkWell(
+              onTap: () async {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.secondaryColor,
+                size: 24,
+              ),
             ),
             title: Text(
               'Coffee Notes',

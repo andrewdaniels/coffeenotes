@@ -84,7 +84,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        '\t•\tCreate Custom Notes\n\t•\tSave Grinder Type\n\t•\tShare Notes\n\t•\tOptimal Extraction Integration\n\t•\tAcaia Integration\n\t•\tTeam View\n\t•\tCategorization of Coffee Types\n',
+                                        '\t•\tCreate Custom Notes\\n\t•\tSave Grinder Type\\n\t•\tShare Notes\\n\t•\tOptimal Extraction Integration\\n\t•\tAcaia Integration\\n\t•\tTeam View\\n\t•\tCategorization of Coffee Types\\n',
                                         textAlign: TextAlign.start,
                                         style:
                                             FlutterFlowTheme.subtitle1.override(
@@ -179,7 +179,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        '\t• \tCreate Custom Notes\n\t• \tSave Grinder Type\n\t• \tShare Notes\n\t• \tOptimal Extraction Integration\n\t• \tAcaia Integration',
+                                        '\t• \tCreate Custom Notes\\n\t• \tSave Grinder Type\\n\t• \tShare Notes\\n\t• \tOptimal Extraction Integration\\n\t• \tAcaia Integration',
                                         textAlign: TextAlign.start,
                                         style:
                                             FlutterFlowTheme.subtitle1.override(

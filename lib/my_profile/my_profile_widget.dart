@@ -22,25 +22,23 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: FlutterFlowTheme.tertiaryColor,
+        automaticallyImplyLeading: false,
+        title: Text(
+          'My Profile',
+          style: FlutterFlowTheme.title1.override(
+            fontFamily: 'Lexend Deca',
+          ),
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 0,
+      ),
       backgroundColor: FlutterFlowTheme.tertiaryColor,
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(24, 64, 0, 0),
-                child: Text(
-                  'My Profile',
-                  style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'Lexend Deca',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              )
-            ],
-          ),
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [

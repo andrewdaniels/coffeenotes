@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
@@ -38,7 +40,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   @nullable
   @BuiltValueField(wireName: 'phone_number')
-  int get phoneNumber;
+  String get phoneNumber;
+
+  @nullable
+  String get userPhoto;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -51,7 +56,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..displayName = ''
     ..uid = ''
     ..photoUrl = ''
-    ..phoneNumber = 0;
+    ..phoneNumber = ''
+    ..userPhoto = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -63,6 +69,11 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   UsersRecord._();
   factory UsersRecord([void Function(UsersRecordBuilder) updates]) =
       _$UsersRecord;
+
+  static UsersRecord getDocumentFromData(
+          Map<String, dynamic> data, DocumentReference reference) =>
+      serializers.deserializeWith(
+          serializer, {...data, kDocumentReferenceField: reference});
 }
 
 Map<String, dynamic> createUsersRecordData({
@@ -73,7 +84,8 @@ Map<String, dynamic> createUsersRecordData({
   String uid,
   DateTime createdTime,
   String photoUrl,
-  int phoneNumber,
+  String phoneNumber,
+  String userPhoto,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
@@ -85,7 +97,8 @@ Map<String, dynamic> createUsersRecordData({
           ..uid = uid
           ..createdTime = createdTime
           ..photoUrl = photoUrl
-          ..phoneNumber = phoneNumber));
+          ..phoneNumber = phoneNumber
+          ..userPhoto = userPhoto));
 
 UsersRecord get dummyUsersRecord {
   final builder = UsersRecordBuilder()
@@ -96,7 +109,8 @@ UsersRecord get dummyUsersRecord {
     ..uid = dummyString
     ..createdTime = dummyTimestamp
     ..photoUrl = dummyImagePath
-    ..phoneNumber = dummyInteger;
+    ..phoneNumber = dummyString
+    ..userPhoto = dummyImagePath;
   return builder.build();
 }
 

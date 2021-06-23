@@ -336,7 +336,7 @@ class _CoffeeNotesDetailsWidgetState extends State<CoffeeNotesDetailsWidget> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: Text(
-                          'The coffee was decent with notes of caramel, lemongrass, slight hit of berry.\n',
+                          'The coffee was decent with notes of caramel, lemongrass, slight hit of berry.\\n',
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Lexend Deca',

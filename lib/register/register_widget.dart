@@ -202,7 +202,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             passwordVisibility1
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            size: 22,
+                            color: FlutterFlowTheme.secondaryColor,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -267,7 +268,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             passwordVisibility2
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            size: 22,
+                            color: FlutterFlowTheme.secondaryColor,
+                            size: 20,
                           ),
                         ),
                       ),
