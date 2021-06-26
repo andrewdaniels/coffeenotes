@@ -190,7 +190,7 @@ class _CoffeeDetailsWidgetState extends State<CoffeeDetailsWidget> {
                   padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Column(
@@ -207,6 +207,30 @@ class _CoffeeDetailsWidgetState extends State<CoffeeDetailsWidget> {
                               padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
                               child: Text(
                                 coffeeDetailsCoffeeNotesRecord.brewTime,
+                                style: FlutterFlowTheme.subtitle2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.primaryColor,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Roaster',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                              child: Text(
+                                coffeeDetailsCoffeeNotesRecord.roasterName,
                                 style: FlutterFlowTheme.subtitle2.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.primaryColor,

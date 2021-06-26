@@ -21,25 +21,28 @@ class CreateNoteNewWidget extends StatefulWidget {
 }
 
 class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
+  CoffeeNotesRecord NewNote;
+  TextEditingController brewTimeController;
+  TextEditingController textController5;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
-  TextEditingController textController4;
-  TextEditingController textController5;
   TextEditingController textController6;
   TextEditingController textController7;
+  TextEditingController textController8;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    brewTimeController = TextEditingController();
+    textController5 = TextEditingController();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController();
-    textController4 = TextEditingController();
-    textController5 = TextEditingController();
-    textController6 = TextEditingController(text: widget.lastGrinderUsed);
-    textController7 = TextEditingController();
+    textController6 = TextEditingController();
+    textController7 = TextEditingController(text: widget.lastGrinderUsed);
+    textController8 = TextEditingController();
   }
 
   @override
@@ -284,52 +287,115 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                            child: TextFormField(
-                              controller: textController4,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Brew Time',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.secondaryColor,
-                                ),
-                                hintText: '3:02',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.secondaryColor,
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
+                                child: TextFormField(
+                                  controller: brewTimeController,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Brew Time',
+                                    labelStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    hintText: 'Time it took to brew...',
+                                    hintStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
                                   ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(4, 4, 16, 4),
+                                child: TextFormField(
+                                  controller: textController5,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Roaster',
+                                    labelStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    hintText: 'Roaster name...',
+                                    hintStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
                                   ),
                                 ),
-                              ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.primaryColor,
-                              ),
-                            ),
+                              )
+                            ],
                           ),
                         )
                       ],
@@ -347,7 +413,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
                                 child: TextFormField(
-                                  controller: textController5,
+                                  controller: textController6,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Grind Size',
@@ -403,7 +469,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
                                 child: TextFormField(
-                                  controller: textController6,
+                                  controller: textController7,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Grinder Used',
@@ -474,7 +540,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               ),
                             ),
                             child: TextFormField(
-                              controller: textController7,
+                              controller: textController8,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Coffee Notes',
@@ -528,12 +594,12 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                         final coffeeName = textController1.text;
                         final coffeeWeight = int.parse(textController2.text);
                         final waterWeight = int.parse(textController3.text);
-                        final brewTime = textController4.text;
-                        final grindSize = double.parse(textController5.text);
-                        final grinderType = textController6.text;
-                        final coffeeRating = 0;
-                        final coffeeNotes = textController7.text;
+                        final brewTime = brewTimeController.text;
+                        final grindSize = double.parse(textController6.text);
+                        final grinderType = textController7.text;
+                        final coffeeNotes = textController8.text;
                         final timeStamp = getCurrentTimestamp;
+                        final roasterName = textController5.text;
 
                         final coffeeNotesRecordData =
                             createCoffeeNotesRecordData(
@@ -543,15 +609,20 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           brewTime: brewTime,
                           grindSize: grindSize,
                           grinderType: grinderType,
-                          coffeeRating: coffeeRating,
                           coffeeNotes: coffeeNotes,
                           timeStamp: timeStamp,
+                          roasterName: roasterName,
                         );
 
-                        await CoffeeNotesRecord.collection
-                            .doc()
+                        final coffeeNotesRecordReference =
+                            CoffeeNotesRecord.collection.doc();
+                        await coffeeNotesRecordReference
                             .set(coffeeNotesRecordData);
+                        NewNote = CoffeeNotesRecord.getDocumentFromData(
+                            coffeeNotesRecordData, coffeeNotesRecordReference);
                         Navigator.pop(context);
+
+                        setState(() {});
                       },
                       text: 'Save Note',
                       options: FFButtonOptions(

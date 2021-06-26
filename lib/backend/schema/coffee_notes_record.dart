@@ -44,6 +44,9 @@ abstract class CoffeeNotesRecord
   double get grindSize;
 
   @nullable
+  String get roasterName;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -55,7 +58,8 @@ abstract class CoffeeNotesRecord
     ..grinderType = ''
     ..coffeeRating = 0
     ..coffeeNotes = ''
-    ..grindSize = 0.0;
+    ..grindSize = 0.0
+    ..roasterName = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('coffeeNotes');
@@ -84,6 +88,7 @@ Map<String, dynamic> createCoffeeNotesRecordData({
   DateTime timeStamp,
   String coffeeNotes,
   double grindSize,
+  String roasterName,
 }) =>
     serializers.toFirestore(
         CoffeeNotesRecord.serializer,
@@ -96,7 +101,8 @@ Map<String, dynamic> createCoffeeNotesRecordData({
           ..coffeeRating = coffeeRating
           ..timeStamp = timeStamp
           ..coffeeNotes = coffeeNotes
-          ..grindSize = grindSize));
+          ..grindSize = grindSize
+          ..roasterName = roasterName));
 
 CoffeeNotesRecord get dummyCoffeeNotesRecord {
   final builder = CoffeeNotesRecordBuilder()
@@ -108,7 +114,8 @@ CoffeeNotesRecord get dummyCoffeeNotesRecord {
     ..coffeeRating = dummyInteger
     ..timeStamp = dummyTimestamp
     ..coffeeNotes = dummyString
-    ..grindSize = dummyDouble;
+    ..grindSize = dummyDouble
+    ..roasterName = dummyString;
   return builder.build();
 }
 

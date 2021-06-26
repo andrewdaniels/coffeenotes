@@ -300,32 +300,32 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         Padding(
                                                           padding: EdgeInsets
                                                               .fromLTRB(
-                                                                  0, 0, 12, 0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Text(
-                                                                columnCoffeeNotesRecord
-                                                                    .grindSize
-                                                                    .toString(),
-                                                                style: FlutterFlowTheme
-                                                                    .subtitle1
+                                                                  0, 0, 0, 4),
+                                                          child: Text(
+                                                            'Roaster',
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style:
+                                                                FlutterFlowTheme
+                                                                    .bodyText2
                                                                     .override(
-                                                                  fontFamily:
-                                                                      'Lexend Deca',
-                                                                  color: FlutterFlowTheme
-                                                                      .primaryColor,
-                                                                ),
-                                                              )
-                                                            ],
+                                                              fontFamily:
+                                                                  'Lexend Deca',
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          columnCoffeeNotesRecord
+                                                              .roasterName,
+                                                          style:
+                                                              FlutterFlowTheme
+                                                                  .subtitle1
+                                                                  .override(
+                                                            fontFamily:
+                                                                'Lexend Deca',
+                                                            color:
+                                                                FlutterFlowTheme
+                                                                    .primaryColor,
                                                           ),
                                                         )
                                                       ],
