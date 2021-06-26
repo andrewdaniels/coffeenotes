@@ -92,484 +92,487 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
           ),
           backgroundColor: FlutterFlowTheme.tertiaryColor,
           body: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                          child: TextFormField(
-                            controller: textController1,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Coffee Name',
-                              labelStyle: FlutterFlowTheme.title3.override(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                            child: TextFormField(
+                              controller: textController1,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Coffee Name',
+                                labelStyle: FlutterFlowTheme.title3.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                hintText: 'Ethiopian Natural, San Juan etc...',
+                                hintStyle: FlutterFlowTheme.title3.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDBE2E7),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDBE2E7),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.title3.override(
                                 fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
+                                color: FlutterFlowTheme.primaryColor,
                                 fontWeight: FontWeight.w500,
                               ),
-                              hintText: 'Ethiopian Natural, San Juan etc...',
-                              hintStyle: FlutterFlowTheme.title3.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8),
-                                ),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.title3.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.primaryColor,
-                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
-                              child: TextFormField(
-                                controller: textController2,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Coffee (g)',
-                                  labelStyle:
-                                      FlutterFlowTheme.subtitle1.override(
-                                    fontFamily: 'Lexend Deca',
-                                  ),
-                                  hintText: '25g',
-                                  hintStyle:
-                                      FlutterFlowTheme.subtitle1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.subtitle1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
-                                ),
-                                keyboardType: TextInputType.number,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
-                              child: TextFormField(
-                                controller: textController3,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Water (g)',
-                                  labelStyle:
-                                      FlutterFlowTheme.subtitle1.override(
-                                    fontFamily: 'Lexend Deca',
-                                  ),
-                                  hintText: '455g',
-                                  hintStyle:
-                                      FlutterFlowTheme.subtitle1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.subtitle1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
-                                ),
-                                keyboardType: TextInputType.number,
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                          child: TextFormField(
-                            controller: textController4,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Brew Time',
-                              labelStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
-                              ),
-                              hintText: '3:02',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFDBE2E7),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8),
-                                ),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.primaryColor,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
-                              child: TextFormField(
-                                controller: textController5,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Grind Size',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  hintText: 'Grind Setting',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
-                              child: TextFormField(
-                                controller: textController6,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Grinder Used',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  hintText: 'Ode Grinder',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.secondaryColor,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFDBE2E7),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.primaryColor,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.92,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: Color(0xFFDBE2E7),
-                              width: 2,
-                            ),
-                          ),
-                          child: TextFormField(
-                            controller: textController7,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Coffee Notes',
-                              labelStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
-                              ),
-                              hintText:
-                                  'Enter what you thought of the coffee here...',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.secondaryColor,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.primaryColor,
-                            ),
-                            textAlign: TextAlign.start,
-                            keyboardType: TextInputType.multiline,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(2, 24, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      final coffeeName = textController1.text;
-                      final coffeeWeight = int.parse(textController2.text);
-                      final waterWeight = int.parse(textController3.text);
-                      final brewTime = textController4.text;
-                      final grindSize = double.parse(textController5.text);
-                      final grinderType = textController6.text;
-                      final coffeeRating = 0;
-                      final coffeeNotes = textController7.text;
-                      final timeStamp = getCurrentTimestamp;
-
-                      final coffeeNotesRecordData = createCoffeeNotesRecordData(
-                        coffeeName: coffeeName,
-                        coffeeWeight: coffeeWeight,
-                        waterWeight: waterWeight,
-                        brewTime: brewTime,
-                        grindSize: grindSize,
-                        grinderType: grinderType,
-                        coffeeRating: coffeeRating,
-                        coffeeNotes: coffeeNotes,
-                        timeStamp: timeStamp,
-                      );
-
-                      await CoffeeNotesRecord.collection
-                          .doc()
-                          .set(coffeeNotesRecordData);
-                      Navigator.pop(context);
-                    },
-                    text: 'Save Note',
-                    options: FFButtonOptions(
-                      width: 230,
-                      height: 50,
-                      color: FlutterFlowTheme.primaryColor,
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Colors.white,
-                      ),
-                      elevation: 3,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 0,
-                      ),
-                      borderRadius: 8,
+                        )
+                      ],
                     ),
                   ),
-                )
-              ],
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
+                                child: TextFormField(
+                                  controller: textController2,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Coffee (g)',
+                                    labelStyle:
+                                        FlutterFlowTheme.subtitle1.override(
+                                      fontFamily: 'Lexend Deca',
+                                    ),
+                                    hintText: '25g',
+                                    hintStyle:
+                                        FlutterFlowTheme.subtitle1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.subtitle1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
+                                  ),
+                                  keyboardType: TextInputType.number,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
+                                child: TextFormField(
+                                  controller: textController3,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Water (g)',
+                                    labelStyle:
+                                        FlutterFlowTheme.subtitle1.override(
+                                      fontFamily: 'Lexend Deca',
+                                    ),
+                                    hintText: '455g',
+                                    hintStyle:
+                                        FlutterFlowTheme.subtitle1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.subtitle1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
+                                  ),
+                                  keyboardType: TextInputType.number,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                            child: TextFormField(
+                              controller: textController4,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Brew Time',
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                ),
+                                hintText: '3:02',
+                                hintStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDBE2E7),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDBE2E7),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.primaryColor,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
+                                child: TextFormField(
+                                  controller: textController5,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Grind Size',
+                                    labelStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    hintText: 'Grind Setting',
+                                    hintStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
+                                child: TextFormField(
+                                  controller: textController6,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Grinder Used',
+                                    labelStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    hintText: 'Ode Grinder',
+                                    hintStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.secondaryColor,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFDBE2E7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryColor,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.92,
+                            height: 120,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: Color(0xFFDBE2E7),
+                                width: 2,
+                              ),
+                            ),
+                            child: TextFormField(
+                              controller: textController7,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Coffee Notes',
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                ),
+                                hintText:
+                                    'Enter what you thought of the coffee here...',
+                                hintStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.secondaryColor,
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.primaryColor,
+                              ),
+                              textAlign: TextAlign.start,
+                              keyboardType: TextInputType.multiline,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(2, 24, 0, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        final coffeeName = textController1.text;
+                        final coffeeWeight = int.parse(textController2.text);
+                        final waterWeight = int.parse(textController3.text);
+                        final brewTime = textController4.text;
+                        final grindSize = double.parse(textController5.text);
+                        final grinderType = textController6.text;
+                        final coffeeRating = 0;
+                        final coffeeNotes = textController7.text;
+                        final timeStamp = getCurrentTimestamp;
+
+                        final coffeeNotesRecordData =
+                            createCoffeeNotesRecordData(
+                          coffeeName: coffeeName,
+                          coffeeWeight: coffeeWeight,
+                          waterWeight: waterWeight,
+                          brewTime: brewTime,
+                          grindSize: grindSize,
+                          grinderType: grinderType,
+                          coffeeRating: coffeeRating,
+                          coffeeNotes: coffeeNotes,
+                          timeStamp: timeStamp,
+                        );
+
+                        await CoffeeNotesRecord.collection
+                            .doc()
+                            .set(coffeeNotesRecordData);
+                        Navigator.pop(context);
+                      },
+                      text: 'Save Note',
+                      options: FFButtonOptions(
+                        width: 230,
+                        height: 50,
+                        color: FlutterFlowTheme.primaryColor,
+                        textStyle: FlutterFlowTheme.subtitle2.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Colors.white,
+                        ),
+                        elevation: 3,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 0,
+                        ),
+                        borderRadius: 8,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );
