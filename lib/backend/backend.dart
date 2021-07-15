@@ -9,7 +9,9 @@ import 'schema/users_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
+export 'schema/index.dart';
 export 'schema/serializers.dart';
+
 export 'schema/coffee_notes_record.dart';
 export 'schema/users_record.dart';
 

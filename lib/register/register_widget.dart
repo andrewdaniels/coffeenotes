@@ -311,15 +311,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         return;
                       }
 
-                      final userName = inputNormalController.text;
-
-                      final usersRecordData = createUsersRecordData(
-                        userName: userName,
+                      final usersCreateData = createUsersRecordData(
+                        userName: inputNormalController.text,
                       );
-
                       await UsersRecord.collection
                           .doc(user.uid)
-                          .update(usersRecordData);
+                          .update(usersCreateData);
 
                       await Navigator.pushAndRemoveUntil(
                         context,

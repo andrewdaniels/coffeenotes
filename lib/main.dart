@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
-import 'package:sample_app_coffee_notes/onboarding1/onboarding1_widget.dart';
+import 'package:sample_app_coffee_notes/onboarding_1/onboarding1_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'home_page/home_page_widget.dart';
 import 'my_profile/my_profile_widget.dart';

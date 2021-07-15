@@ -3,6 +3,7 @@ import '../coffee_details/coffee_details_widget.dart';
 import '../create_note_new/create_note_new_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -37,10 +38,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               snapshot.data;
           // Customize what your widget looks like with no query results.
           if (snapshot.data.isEmpty) {
-            // return Container();
-            // For now, we'll just include some dummy data.
-            floatingActionButtonCoffeeNotesRecordList =
-                createDummyCoffeeNotesRecord(count: 1);
+            return Container(
+              height: 100,
+              child: Center(
+                child: Text('No results.'),
+              ),
+            );
           }
           final floatingActionButtonCoffeeNotesRecord =
               floatingActionButtonCoffeeNotesRecordList.first;
@@ -104,7 +107,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   }
                   List<CoffeeNotesRecord> columnCoffeeNotesRecordList =
                       snapshot.data;
-                  // Customize what your widget looks like with no query results.
                   if (columnCoffeeNotesRecordList.isEmpty) {
                     return Center(
                       child: Image.asset(
@@ -128,6 +130,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: List.generate(
                             columnCoffeeNotesRecordList.length, (columnIndex) {
                           final columnCoffeeNotesRecord =
@@ -209,6 +212,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   16, 8, 0, 12),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
                                                 children: [
                                                   Column(
                                                     mainAxisSize:
@@ -251,7 +256,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsets.fromLTRB(
-                                                            24, 0, 0, 0),
+                                                            16, 0, 0, 0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -293,42 +298,50 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ),
                                                   ),
                                                   Expanded(
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding: EdgeInsets
-                                                              .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            'Roaster',
-                                                            textAlign:
-                                                                TextAlign.start,
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.fromLTRB(
+                                                              16, 0, 0, 0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Padding(
+                                                            padding: EdgeInsets
+                                                                .fromLTRB(
+                                                                    0, 0, 0, 4),
+                                                            child: Text(
+                                                              'Roaster',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .start,
+                                                              style:
+                                                                  FlutterFlowTheme
+                                                                      .bodyText2
+                                                                      .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          AutoSizeText(
+                                                            columnCoffeeNotesRecord
+                                                                .roasterName,
                                                             style:
                                                                 FlutterFlowTheme
-                                                                    .bodyText2
+                                                                    .subtitle1
                                                                     .override(
                                                               fontFamily:
                                                                   'Lexend Deca',
+                                                              color: FlutterFlowTheme
+                                                                  .primaryColor,
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          columnCoffeeNotesRecord
-                                                              .roasterName,
-                                                          style:
-                                                              FlutterFlowTheme
-                                                                  .subtitle1
-                                                                  .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                            color:
-                                                                FlutterFlowTheme
-                                                                    .primaryColor,
-                                                          ),
-                                                        )
-                                                      ],
+                                                          )
+                                                        ],
+                                                      ),
                                                     ),
                                                   )
                                                 ],

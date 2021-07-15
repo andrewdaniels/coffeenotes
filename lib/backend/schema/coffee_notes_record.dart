@@ -1,13 +1,8 @@
 import 'dart:async';
 
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:latlong/latlong.dart';
-
-import 'schema_util.dart';
+import 'index.dart';
 import 'serializers.dart';
+import 'package:built_value/built_value.dart';
 
 part 'coffee_notes_record.g.dart';
 
@@ -18,12 +13,6 @@ abstract class CoffeeNotesRecord
 
   @nullable
   String get coffeeName;
-
-  @nullable
-  int get coffeeWeight;
-
-  @nullable
-  int get waterWeight;
 
   @nullable
   String get brewTime;
@@ -47,19 +36,25 @@ abstract class CoffeeNotesRecord
   String get roasterName;
 
   @nullable
+  int get waterWeight;
+
+  @nullable
+  int get coffeeWeight;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(CoffeeNotesRecordBuilder builder) => builder
     ..coffeeName = ''
-    ..coffeeWeight = 0
-    ..waterWeight = 0
     ..brewTime = ''
     ..grinderType = ''
     ..coffeeRating = 0
     ..coffeeNotes = ''
     ..grindSize = 0.0
-    ..roasterName = '';
+    ..roasterName = ''
+    ..waterWeight = 0
+    ..coffeeWeight = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('coffeeNotes');
@@ -80,8 +75,6 @@ abstract class CoffeeNotesRecord
 
 Map<String, dynamic> createCoffeeNotesRecordData({
   String coffeeName,
-  int coffeeWeight,
-  int waterWeight,
   String brewTime,
   String grinderType,
   int coffeeRating,
@@ -89,35 +82,19 @@ Map<String, dynamic> createCoffeeNotesRecordData({
   String coffeeNotes,
   double grindSize,
   String roasterName,
+  int waterWeight,
+  int coffeeWeight,
 }) =>
     serializers.toFirestore(
         CoffeeNotesRecord.serializer,
         CoffeeNotesRecord((c) => c
           ..coffeeName = coffeeName
-          ..coffeeWeight = coffeeWeight
-          ..waterWeight = waterWeight
           ..brewTime = brewTime
           ..grinderType = grinderType
           ..coffeeRating = coffeeRating
           ..timeStamp = timeStamp
           ..coffeeNotes = coffeeNotes
           ..grindSize = grindSize
-          ..roasterName = roasterName));
-
-CoffeeNotesRecord get dummyCoffeeNotesRecord {
-  final builder = CoffeeNotesRecordBuilder()
-    ..coffeeName = dummyString
-    ..coffeeWeight = dummyInteger
-    ..waterWeight = dummyInteger
-    ..brewTime = dummyString
-    ..grinderType = dummyString
-    ..coffeeRating = dummyInteger
-    ..timeStamp = dummyTimestamp
-    ..coffeeNotes = dummyString
-    ..grindSize = dummyDouble
-    ..roasterName = dummyString;
-  return builder.build();
-}
-
-List<CoffeeNotesRecord> createDummyCoffeeNotesRecord({int count}) =>
-    List.generate(count, (_) => dummyCoffeeNotesRecord);
+          ..roasterName = roasterName
+          ..waterWeight = waterWeight
+          ..coffeeWeight = coffeeWeight));
