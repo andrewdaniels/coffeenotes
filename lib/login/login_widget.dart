@@ -6,8 +6,8 @@ import '../forgot_password/forgot_password_widget.dart';
 import '../main.dart';
 import '../phone_enter/phone_enter_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class LoginWidget extends StatefulWidget {
   LoginWidget({Key key}) : super(key: key);
@@ -117,24 +117,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                               color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         style: FlutterFlowTheme.bodyText1.override(
@@ -173,24 +163,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                             color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFEEEFEF),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         suffixIcon: InkWell(
                           onTap: () => setState(

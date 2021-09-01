@@ -4,9 +4,10 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class RegisterWidget extends StatefulWidget {
   RegisterWidget({Key key}) : super(key: key);
@@ -119,24 +120,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               color: Color(0xFFDBE2E7),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFDBE2E7),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         style: FlutterFlowTheme.bodyText1.override(
@@ -175,24 +166,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             color: Color(0xFFDBE2E7),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFDBE2E7),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         suffixIcon: InkWell(
                           onTap: () => setState(
@@ -241,24 +222,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             color: Color(0xFFDBE2E7),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFDBE2E7),
                             width: 2,
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         suffixIcon: InkWell(
                           onTap: () => setState(
@@ -318,6 +289,15 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           .doc(user.uid)
                           .update(usersCreateData);
 
+                      final coffeeTypesCreateData = {
+                        ...createCoffeeTypesRecordData(
+                          user: currentUserReference,
+                        ),
+                        'coffees': FieldValue.arrayUnion(['My First Coffee']),
+                      };
+                      await CoffeeTypesRecord.collection
+                          .doc()
+                          .set(coffeeTypesCreateData);
                       await Navigator.pushAndRemoveUntil(
                         context,
                         PageTransition(

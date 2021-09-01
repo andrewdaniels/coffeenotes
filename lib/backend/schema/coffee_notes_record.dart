@@ -21,9 +21,6 @@ abstract class CoffeeNotesRecord
   String get grinderType;
 
   @nullable
-  int get coffeeRating;
-
-  @nullable
   DateTime get timeStamp;
 
   @nullable
@@ -42,6 +39,16 @@ abstract class CoffeeNotesRecord
   int get coffeeWeight;
 
   @nullable
+  String get coffeeRating;
+
+  @nullable
+  @BuiltValueField(wireName: 'Coffee')
+  DocumentReference get coffee;
+
+  @nullable
+  DocumentReference get user;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -49,12 +56,12 @@ abstract class CoffeeNotesRecord
     ..coffeeName = ''
     ..brewTime = ''
     ..grinderType = ''
-    ..coffeeRating = 0
     ..coffeeNotes = ''
     ..grindSize = 0.0
     ..roasterName = ''
     ..waterWeight = 0
-    ..coffeeWeight = 0;
+    ..coffeeWeight = 0
+    ..coffeeRating = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('coffeeNotes');
@@ -77,13 +84,15 @@ Map<String, dynamic> createCoffeeNotesRecordData({
   String coffeeName,
   String brewTime,
   String grinderType,
-  int coffeeRating,
   DateTime timeStamp,
   String coffeeNotes,
   double grindSize,
   String roasterName,
   int waterWeight,
   int coffeeWeight,
+  String coffeeRating,
+  DocumentReference coffee,
+  DocumentReference user,
 }) =>
     serializers.toFirestore(
         CoffeeNotesRecord.serializer,
@@ -91,10 +100,12 @@ Map<String, dynamic> createCoffeeNotesRecordData({
           ..coffeeName = coffeeName
           ..brewTime = brewTime
           ..grinderType = grinderType
-          ..coffeeRating = coffeeRating
           ..timeStamp = timeStamp
           ..coffeeNotes = coffeeNotes
           ..grindSize = grindSize
           ..roasterName = roasterName
           ..waterWeight = waterWeight
-          ..coffeeWeight = coffeeWeight));
+          ..coffeeWeight = coffeeWeight
+          ..coffeeRating = coffeeRating
+          ..coffee = coffee
+          ..user = user));

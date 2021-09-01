@@ -1,47 +1,50 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_drop_down_template.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
-class CreateNoteNewWidget extends StatefulWidget {
-  CreateNoteNewWidget({
+class CreateNoteUpdateWidget extends StatefulWidget {
+  CreateNoteUpdateWidget({
     Key key,
     this.lastGrinderUsed,
+    this.coffees,
   }) : super(key: key);
 
   final String lastGrinderUsed;
+  final DocumentReference coffees;
 
   @override
-  _CreateNoteNewWidgetState createState() => _CreateNoteNewWidgetState();
+  _CreateNoteUpdateWidgetState createState() => _CreateNoteUpdateWidgetState();
 }
 
-class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
-  TextEditingController brewTimeController;
-  TextEditingController textController5;
+class _CreateNoteUpdateWidgetState extends State<CreateNoteUpdateWidget> {
+  String dropDownValue;
   TextEditingController textController1;
   TextEditingController textController2;
-  TextEditingController textController3;
+  TextEditingController brewTimeController;
+  TextEditingController textController4;
+  TextEditingController textController5;
   TextEditingController textController6;
-  TextEditingController textController7;
-  TextEditingController textController8;
+  double ratingBarValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     brewTimeController = TextEditingController();
-    textController5 = TextEditingController();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-    textController3 = TextEditingController();
+    textController4 = TextEditingController();
+    textController5 = TextEditingController(text: widget.lastGrinderUsed);
     textController6 = TextEditingController();
-    textController7 = TextEditingController(text: widget.lastGrinderUsed);
-    textController8 = TextEditingController();
   }
 
   @override
@@ -79,64 +82,65 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                        child: TextFormField(
-                          controller: textController1,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Coffee Name',
-                            labelStyle: FlutterFlowTheme.title3.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.secondaryColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            hintText: 'Ethiopian Natural, San Juan etc...',
-                            hintStyle: FlutterFlowTheme.title3.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.secondaryColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFDBE2E7),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFDBE2E7),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
-                              ),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.title3.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.primaryColor,
-                            fontWeight: FontWeight.w500,
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 4),
+                child: StreamBuilder<List<CoffeeTypesRecord>>(
+                  stream: queryCoffeeTypesRecord(
+                    queryBuilder: (coffeeTypesRecord) => coffeeTypesRecord
+                        .where('user', isEqualTo: currentUserReference),
+                    singleRecord: true,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: SpinKitCubeGrid(
+                            color: FlutterFlowTheme.secondaryColor,
+                            size: 50,
                           ),
                         ),
+                      );
+                    }
+                    List<CoffeeTypesRecord> dropDownCoffeeTypesRecordList =
+                        snapshot.data;
+                    // Customize what your widget looks like with no query results.
+                    if (snapshot.data.isEmpty) {
+                      return Container(
+                        height: 100,
+                        child: Center(
+                          child: Text('No results.'),
+                        ),
+                      );
+                    }
+                    final dropDownCoffeeTypesRecord =
+                        dropDownCoffeeTypesRecordList.first;
+                    return FlutterFlowDropDown(
+                      options: dropDownCoffeeTypesRecord.coffees.toList(),
+                      onChanged: (value) {
+                        setState(() => dropDownValue = value);
+                      },
+                      width: MediaQuery.of(context).size.width * 0.92,
+                      height: 60,
+                      textStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.black,
                       ),
-                    )
-                  ],
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.secondaryColor,
+                        size: 15,
+                      ),
+                      fillColor: Colors.white,
+                      elevation: 2,
+                      borderColor: FlutterFlowTheme.grayLine,
+                      borderWidth: 2,
+                      borderRadius: 8,
+                      margin: EdgeInsets.fromLTRB(16, 4, 16, 4),
+                      hidesUnderline: true,
+                    );
+                  },
                 ),
               ),
               Padding(
@@ -151,7 +155,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
                             child: TextFormField(
-                              controller: textController2,
+                              controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Coffee (g)',
@@ -168,24 +172,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               style: FlutterFlowTheme.subtitle1.override(
@@ -205,7 +199,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
                             child: TextFormField(
-                              controller: textController3,
+                              controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Water (g)',
@@ -222,24 +216,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               style: FlutterFlowTheme.subtitle1.override(
@@ -266,7 +250,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
+                            padding: EdgeInsets.fromLTRB(16, 4, 16, 4),
                             child: TextFormField(
                               controller: brewTimeController,
                               obscureText: false,
@@ -286,78 +270,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.primaryColor,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(4, 4, 16, 4),
-                            child: TextFormField(
-                              controller: textController5,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Roaster',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.secondaryColor,
-                                ),
-                                hintText: 'Roaster name...',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.secondaryColor,
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               style: FlutterFlowTheme.bodyText1.override(
@@ -384,7 +304,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(16, 4, 8, 4),
                             child: TextFormField(
-                              controller: textController6,
+                              controller: textController4,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Grind Size',
@@ -402,24 +322,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               style: FlutterFlowTheme.bodyText1.override(
@@ -438,7 +348,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(4, 0, 16, 0),
                             child: TextFormField(
-                              controller: textController7,
+                              controller: textController5,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Grinder Used',
@@ -456,24 +366,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFFDBE2E7),
                                     width: 2,
                                   ),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               style: FlutterFlowTheme.bodyText1.override(
@@ -496,7 +396,7 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        controller: textController8,
+                        controller: textController6,
                         obscureText: false,
                         decoration: InputDecoration(
                           isDense: true,
@@ -516,24 +416,14 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                               color: Color(0xFFDBE2E7),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFDBE2E7),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         style: FlutterFlowTheme.bodyText1.override(
@@ -549,41 +439,116 @@ class _CreateNoteNewWidgetState extends State<CreateNoteNewWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(2, 24, 0, 0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    final coffeeNotesCreateData = createCoffeeNotesRecordData(
-                      coffeeName: textController1.text,
-                      coffeeWeight: int.parse(textController2.text),
-                      waterWeight: int.parse(textController3.text),
-                      brewTime: brewTimeController.text,
-                      grindSize: double.parse(textController6.text),
-                      grinderType: textController7.text,
-                      coffeeNotes: textController8.text,
-                      timeStamp: getCurrentTimestamp,
-                      roasterName: textController5.text,
-                    );
-                    await CoffeeNotesRecord.collection
-                        .doc()
-                        .set(coffeeNotesCreateData);
-                    Navigator.pop(context);
-                  },
-                  text: 'Save Note',
-                  options: FFButtonOptions(
-                    width: 230,
-                    height: 50,
-                    color: FlutterFlowTheme.primaryColor,
-                    textStyle: FlutterFlowTheme.subtitle2.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Colors.white,
-                    ),
-                    elevation: 3,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
-                    ),
-                    borderRadius: 8,
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                child: Text(
+                  'Rate This Brew',
+                  style: FlutterFlowTheme.title3.override(
+                    fontFamily: 'Lexend Deca',
                   ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                child: RatingBar.builder(
+                  onRatingUpdate: (newValue) => ratingBarValue = newValue,
+                  itemBuilder: (context, index) => Icon(
+                    Icons.star_rounded,
+                    color: FlutterFlowTheme.primaryColor,
+                  ),
+                  direction: Axis.horizontal,
+                  initialRating: 0,
+                  unratedColor: Color(0xFFDADADA),
+                  itemCount: 5,
+                  itemSize: 40,
+                  glowColor: FlutterFlowTheme.primaryColor,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(2, 24, 0, 0),
+                child: StreamBuilder<List<CoffeesRecord>>(
+                  stream: queryCoffeesRecord(
+                    singleRecord: true,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: SpinKitCubeGrid(
+                            color: FlutterFlowTheme.secondaryColor,
+                            size: 50,
+                          ),
+                        ),
+                      );
+                    }
+                    List<CoffeesRecord> buttonCoffeesRecordList = snapshot.data;
+                    // Customize what your widget looks like with no query results.
+                    if (snapshot.data.isEmpty) {
+                      return Container(
+                        height: 100,
+                        child: Center(
+                          child: Text('No results.'),
+                        ),
+                      );
+                    }
+                    final buttonCoffeesRecord = buttonCoffeesRecordList.first;
+                    return FFButtonWidget(
+                      onPressed: () async {
+                        final coffeeNotesCreateData =
+                            createCoffeeNotesRecordData(
+                          coffeeName: dropDownValue,
+                          coffeeWeight: int.parse(textController1.text),
+                          waterWeight: int.parse(textController2.text),
+                          brewTime: brewTimeController.text,
+                          grindSize: double.parse(textController4.text),
+                          grinderType: textController5.text,
+                          coffeeNotes: textController6.text,
+                          timeStamp: getCurrentTimestamp,
+                          coffeeRating: ratingBarValue.toString(),
+                          user: currentUserReference,
+                          roasterName: buttonCoffeesRecord.roasterName,
+                          coffee: buttonCoffeesRecord.reference,
+                        );
+                        await CoffeeNotesRecord.collection
+                            .doc()
+                            .set(coffeeNotesCreateData);
+
+                        final coffeesUpdateData = createCoffeesRecordData(
+                          roasterName: buttonCoffeesRecord.roasterName,
+                          coffeePhoto: buttonCoffeesRecord.coffeePhoto,
+                        );
+                        await buttonCoffeesRecord.reference
+                            .update(coffeesUpdateData);
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.leftToRight,
+                            duration: Duration(milliseconds: 220),
+                            reverseDuration: Duration(milliseconds: 220),
+                            child: NavBarPage(initialPage: 'HomePage'),
+                          ),
+                        );
+                      },
+                      text: 'Save Note',
+                      options: FFButtonOptions(
+                        width: 230,
+                        height: 50,
+                        color: FlutterFlowTheme.primaryColor,
+                        textStyle: FlutterFlowTheme.subtitle2.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Colors.white,
+                        ),
+                        elevation: 3,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 0,
+                        ),
+                        borderRadius: 8,
+                      ),
+                    );
+                  },
                 ),
               )
             ],

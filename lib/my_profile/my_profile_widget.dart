@@ -4,12 +4,18 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboarding_1/onboarding1_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class MyProfileWidget extends StatefulWidget {
-  MyProfileWidget({Key key}) : super(key: key);
+  MyProfileWidget({
+    Key key,
+    this.userProfile,
+  }) : super(key: key);
+
+  final DocumentReference userProfile;
 
   @override
   _MyProfileWidgetState createState() => _MyProfileWidgetState();
@@ -40,6 +46,21 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    currentUserEmail,
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Lexend Deca',
+                      color: FlutterFlowTheme.secondaryColor,
+                    ),
+                  )
+                ],
+              ),
+            ),
             Row(
               mainAxisSize: MainAxisSize.max,
               children: [

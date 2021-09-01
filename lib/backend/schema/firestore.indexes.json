@@ -1,0 +1,46 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "coffeeNotes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeStamp",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "coffees",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userRecord",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "dateCreated",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "coffeeNotes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Coffee",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeStamp",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,8 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'coffee_notes_record.dart';
 import 'users_record.dart';
+import 'coffees_record.dart';
+import 'coffee_types_record.dart';
 
 import 'index.dart';
 
@@ -14,6 +16,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   CoffeeNotesRecord,
   UsersRecord,
+  CoffeesRecord,
+  CoffeeTypesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
@@ -116,9 +120,11 @@ extension LatLngExtension on GeoPoint {
 
 DocumentReference toRef(String ref) => FirebaseFirestore.instance.doc(ref);
 
-T safeGet<T>(T Function() func) {
+T safeGet<T>(T Function() func, [Function(dynamic) reportError]) {
   try {
     return func();
-  } catch (_) {}
+  } catch (e) {
+    reportError?.call(e);
+  }
   return null;
 }

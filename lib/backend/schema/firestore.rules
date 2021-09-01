@@ -15,5 +15,17 @@ service cloud.firestore {
     match /coffeeNotes/{id} {
       allow read, write: if true;
     }
+
+    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
+    // security rules for this collection before publishing your app.
+    match /coffees/{id} {
+      allow read, write: if true;
+    }
+
+    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
+    // security rules for this collection before publishing your app.
+    match /coffee_types/{id} {
+      allow read, write: if true;
+    }
   }
 }

@@ -1,8 +1,8 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class CoffeeNotesDetailsWidget extends StatefulWidget {
   CoffeeNotesDetailsWidget({Key key}) : super(key: key);
@@ -336,7 +336,7 @@ class _CoffeeNotesDetailsWidgetState extends State<CoffeeNotesDetailsWidget> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: Text(
-                          'The coffee was decent with notes of caramel, lemongrass, slight hit of berry.\\n',
+                          'The coffee was decent with notes of caramel, lemongrass, slight hit of berry.\n',
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Lexend Deca',

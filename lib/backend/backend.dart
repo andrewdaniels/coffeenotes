@@ -6,6 +6,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/coffee_notes_record.dart';
 import 'schema/users_record.dart';
+import 'schema/coffees_record.dart';
+import 'schema/coffee_types_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,6 +16,8 @@ export 'schema/serializers.dart';
 
 export 'schema/coffee_notes_record.dart';
 export 'schema/users_record.dart';
+export 'schema/coffees_record.dart';
+export 'schema/coffee_types_record.dart';
 
 Stream<List<CoffeeNotesRecord>> queryCoffeeNotesRecord(
         {Query Function(Query) queryBuilder,
@@ -29,6 +33,20 @@ Stream<List<UsersRecord>> queryUsersRecord(
     queryCollection(UsersRecord.collection, UsersRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
+Stream<List<CoffeesRecord>> queryCoffeesRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(CoffeesRecord.collection, CoffeesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Stream<List<CoffeeTypesRecord>> queryCoffeeTypesRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(CoffeeTypesRecord.collection, CoffeeTypesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
 Stream<List<T>> queryCollection<T>(
     CollectionReference collection, Serializer<T> serializer,
     {Query Function(Query) queryBuilder,
@@ -40,7 +58,13 @@ Stream<List<T>> queryCollection<T>(
     query = query.limit(singleRecord ? 1 : limit);
   }
   return query.snapshots().map((s) => s.docs
-      .map((d) => serializers.deserializeWith(serializer, serializedData(d)))
+      .map(
+        (d) => safeGet(
+          () => serializers.deserializeWith(serializer, serializedData(d)),
+          (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
+        ),
+      )
+      .where((d) => d != null)
       .toList());
 }
 

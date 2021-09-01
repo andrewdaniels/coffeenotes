@@ -4,8 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class PhoneVerifyWidget extends StatefulWidget {
   PhoneVerifyWidget({Key key}) : super(key: key);
@@ -111,24 +111,14 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget> {
                               color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFEEEFEF),
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         style: FlutterFlowTheme.bodyText1.override(

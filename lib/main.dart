@@ -1,9 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
+import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:sample_app_coffee_notes/onboarding_1/onboarding1_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'home_page/home_page_widget.dart';
+import 'my_coffees/my_coffees_widget.dart';
 import 'my_profile/my_profile_widget.dart';
 
 void main() async {
@@ -74,6 +78,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
+      'myCoffees': MyCoffeesWidget(),
       'MyProfile': MyProfileWidget(),
     };
     return Scaffold(
@@ -90,6 +95,17 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'My Brews',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.coffee,
+              size: 24,
+            ),
+            activeIcon: FaIcon(
+              FontAwesomeIcons.coffee,
+              size: 24,
+            ),
+            label: 'My Coffees',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -110,6 +126,8 @@ class _NavBarPageState extends State<NavBarPage> {
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         showSelectedLabels: true,
         showUnselectedLabels: true,
+        // Temporary fix for https://github.com/flutter/flutter/issues/84556
+        unselectedLabelStyle: const TextStyle(fontSize: 0.001),
         type: BottomNavigationBarType.fixed,
       ),
     );
